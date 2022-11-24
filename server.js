@@ -1,13 +1,19 @@
 import express from "express";
 import session from "express-session";
 import dotenv from 'dotenv';
-import routeHomepage from './routes/route-homepage.js';
+import path from 'path';
+import routeHomepage from './routes/AdRoute.js';
 
 dotenv.config();
 
 const app = express();
 
 app.set("view engine", "ejs");
+
+// const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
+app.use(express.static("./"));
+// app.use(express.static(__dirname));
 
 app.use(
     session({
