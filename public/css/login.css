@@ -1,0 +1,59 @@
+a {
+    text-decoration: none;
+    color: var(--darkGreen);
+}
+
+form {
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+}
+
+input[type=text], input[type=password] {
+    outline: none;
+    border: none;
+    font-size: 1.1rem;
+    padding: 0.8rem;
+    margin: 0.3rem;
+    border-radius: 5px;
+}
+
+input[type=text]:first-child {
+    margin-top: 1rem;
+}
+
+input[type=submit] {
+    border: none;
+    width: 40%;
+    text-decoration: none;
+    padding: 0.8rem;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1rem;
+    background: var(--melon);
+    color: var(--brown);
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.notAUserYet {
+    background: var(--melon);
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+    position: relative;
+    top: 17rem;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    padding: 0.3rem 0.8rem;
+}
+
+h6 {
+    color: var(--brown);
+    font-size: 1rem;
+}
+
+.register {
+    text-decoration: underline;
+}

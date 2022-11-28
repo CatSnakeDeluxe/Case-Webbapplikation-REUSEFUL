@@ -5,12 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/style.css">
+    <script src="https://kit.fontawesome.com/bf456a88d2.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
     <%- include("./partials/header.ejs") %>
 
-    <h3><%= locals %></h3>
+    <h2 class="flex pageHeading">Recently Listed</h2>
+
+    <% Ads.forEach(Ad => { %>
+        <div class="ad">
+            <h3><%= Ad.title %></h3>
+            <p><%= Ad.category %></p>
+            <h4><%= Ad.price %></h4>
+            <p><%= Ad.description %></p>
+        </div>
+    <% }) %>
 
 </body>
 </html>

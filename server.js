@@ -1,8 +1,9 @@
 import express from "express";
 import session from "express-session";
-import dotenv from 'dotenv';
-import path from 'path';
-import routeHomepage from './routes/AdRoute.js';
+import dotenv from "dotenv";
+import AdRouter from "./routes/AdRoute.js";
+import LoginRouter from "./routes/LoginRoute.js";
+import RegisterRouter from "./routes/RegisterRoute.js"
 
 dotenv.config();
 
@@ -28,7 +29,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("./public"));
 
-app.use('/', routeHomepage);
+app.use('/', AdRouter);
+app.use('/login', LoginRouter);
+app.use('/register', RegisterRouter);
 
 app.listen(process.env.PORT, (req, res) => {
     console.log(`Server running on port ${process.env.PORT}`);
