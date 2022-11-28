@@ -61,7 +61,9 @@ header {
     text-decoration: none;
     color: var(--darkGreen);
     font-weight: 500;
-    margin: 0.4rem 0.6rem;
+    padding: 0.2rem 0.3rem;
+    margin: 0.3rem 0.3rem;
+    border-radius: 5px;
 }
 
 .flex {
@@ -76,6 +78,10 @@ header {
     background: var(--melon);
     color: var(--brown);
 }
+
+.filterBtn.active {
+    background-color: var(--lightGreen);
+  }
 
 /* PAGE HEADINGS */
 
@@ -102,5 +108,37 @@ h2 {
 
 .ad {
     background: var(--white);
-    border: 2px solid var(--mediumGreen);
+    padding: 0.5rem 1rem;
+}
+
+.ad:not(:last-child)  {
+    margin-bottom: 1rem;
+}
+
+.titleCategory {
+    justify-content: space-between;
+}
+
+.title {
+    color: var(--darkGreen);
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkGreen);
+}
+
+.category {
+    background: var(--melon);
+    padding: 0.3rem;
+    font-size: 0.6rem;
+    font-weight: 500;
+    width: fit-content;
+    border-radius: 5px;
+    margin: 0.4rem 0;
 }

@@ -15,10 +15,13 @@
 
     <% Ads.forEach(Ad => { %>
         <div class="ad">
-            <h3><%= Ad.title %></h3>
-            <p><%= Ad.category %></p>
-            <h4><%= Ad.price %></h4>
-            <p><%= Ad.description %></p>
+            <div class="flex titleCategory">
+                <div>
+                    <h3 class="title"><%= Ad.title %></h3>
+                    <p class="category"><%= Ad.category %></p>
+                </div>
+                <h4 class="price"><%= Ad.price %></h4>
+            </div>
         </div>
     <% }) %>
 
