@@ -15,7 +15,7 @@ const url = process.env.MONGO_CONNECTION_STR;
 mongoose.connect(url);
 
 // ad schema 
-const AdSchema = {
+const AdSchema = new mongoose.Schema( {
   title: {
     type: String,
     required: "must be filled in",
@@ -36,8 +36,8 @@ const AdSchema = {
     type: String,
     required: "must be filled in",
   },
-};
+}, { collection: "Ads" });
 
-const AdModel = mongoose.model("Ad", AdSchema);
+const AdModel = mongoose.model("Ads", AdSchema);
 
 export default AdModel;
