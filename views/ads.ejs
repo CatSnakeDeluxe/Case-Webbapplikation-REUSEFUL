@@ -13,6 +13,8 @@
 
     <h2 class="flex pageHeading">Recently Listed</h2>
 
+    <a href="/adForm">Create Ad</a>
+
     <% Ads.forEach(Ad => { %>
         <div class="ad">
             <div class="flex titleCategory">
@@ -25,9 +27,8 @@
         </div>
     <% }) %>
 
-    <form action="/ads" method="post" class="flex">
+    <!-- <form action="/ads" method="post" class="flex">
         <input type="text" name="title" id="title" placeholder="Title">
-        <!-- <input type="text" name="category" id="category" placeholder="Category"> -->
         <select name="category" id="category">
             <option value="sofas">Sofas</option>
             <option value="tables">Tables</option>
@@ -42,7 +43,7 @@
         <input type="radio" name="private" id="visibility">
 
         <input type="submit" value="Submit">
-    </form>
+    </form> -->
 
 </body>
 </html>

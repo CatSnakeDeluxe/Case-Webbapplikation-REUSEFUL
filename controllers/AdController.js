@@ -26,7 +26,7 @@ async function publishAd(req, res) {
       // save to database
       newAdDocument.save();
   
-      // create message that operation was successfull
+    // create message that operation was successfull
     //   query = new URLSearchParams({type: "success", message: "Successfully created quote!"});
     } catch (err) {
       // create message that operation was unsuccessfull
@@ -39,4 +39,8 @@ async function publishAd(req, res) {
     }
   }
 
-export default { getAllAds, publishAd };
+  async function getAdForm(req, res) {
+    res.render("adForm");
+  }
+
+export default { getAllAds, publishAd, getAdForm };

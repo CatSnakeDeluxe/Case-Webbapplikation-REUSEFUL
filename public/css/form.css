@@ -9,13 +9,53 @@ form {
     margin: auto;
 }
 
-input[type=text], input[type=password] {
+.formContainer {
+    flex-direction: column;
+    /* TODO: center container */
+}
+
+input[type=text], input[type=password], input[type=number] {
     outline: none;
     border: none;
     font-size: 1.1rem;
     padding: 0.8rem;
     margin: 0.3rem;
     border-radius: 5px;
+}
+
+textarea {
+    outline: none;
+    border: none;
+    font-size: 1.1rem;
+    padding: 0.8rem;
+    margin: 0.3rem;
+    border-radius: 5px;
+}
+
+.selectCategory {
+    outline: none;
+    border: none;
+    font-size: 1.1rem;
+    padding: 0.8rem 0.4rem ;
+    margin: 0.3rem;
+    border-radius: 5px;
+}
+
+.radioContainer {
+    justify-content: center;
+    margin-top: 0.6rem;
+}
+
+.radioOption:first-child {
+    margin-right: 2rem;
+}
+
+.radioOption label {
+    margin-right: 0.2rem;
+}
+
+input[type=radio] {
+    accent-color: var(--darkGreen);
 }
 
 input[type=text]:first-child {
@@ -33,7 +73,7 @@ input[type=submit] {
     background: var(--melon);
     color: var(--brown);
     margin: auto;
-    margin-top: 1rem;
+    margin-top: 1.4rem;
 }
 
 .notAUserYet {
