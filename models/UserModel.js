@@ -39,29 +39,29 @@ const userSchema = new mongoose.Schema({
     },
 }, { collection: "Users" });
 
-userSchema.pre("save", function (next) {
-    try {   
-        if (!this.isModified("password")) {
-            return next();
-        }
+// userSchema.pre("save", function (next) {
+//     try {   
+//         if (!this.isModified("password")) {
+//             return next();
+//         }
 
-        // hash password
-        this.password = bcrypt.hashSync(this.password, 10);
+//         // hash password
+//         this.password = bcrypt.hashSync(this.password, 10);
         
-        // after hashing continue with save()
-        next();
-    } catch (err) {
-        throw new Error("Inccorect password", err);
-    }
-}, { collection: "Users" });
+//         // after hashing continue with save()
+//         next();
+//     } catch (err) {
+//         throw new Error("Inccorect password", err);
+//     }
+// }, { collection: "Users" });
 
-userSchema.methods.comparePassword = async function (plainTextPassword, hashedPassword) {
-    try {
-        return await bcrypt.compare(plainTextPassword, hashedPassword);
-    } catch (err) {
-        throw new Error("Incorrect password", err);
-    }
-}
+// userSchema.methods.comparePassword = async function (plainTextPassword, hashedPassword) {
+//     try {
+//         return await bcrypt.compare(plainTextPassword, hashedPassword);
+//     } catch (err) {
+//         throw new Error("Incorrect password", err);
+//     }
+// }
 
 const UserModel = mongoose.model("User", userSchema);
 
