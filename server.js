@@ -3,8 +3,6 @@ import session from "express-session";
 import dotenv from "dotenv";
 import AdRouter from "./routes/AdRoute.js";
 import UserRouter from "./routes/UserRoute.js";
-// import UserRouter from "./routes/loginHenryStyle.js";
-import RegisterRouter from "./routes/RegisterRoute.js"
 
 dotenv.config();
 
@@ -45,7 +43,7 @@ app.use(express.static("./public"));
 
 app.use('/', AdRouter);
 app.use('/login', UserRouter);
-app.use('/register', RegisterRouter);
+app.use('/register', UserRouter);
 
 app.listen(process.env.PORT, (req, res) => {
     console.log(`Server running on port ${process.env.PORT}`);

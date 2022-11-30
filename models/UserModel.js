@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
         minLength: 4,
         maxLength: 36
     },
-}, { timestamps: true });
+}, { collection: "Users" });
 
 userSchema.pre("save", function (next) {
     try {   

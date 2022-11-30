@@ -2,7 +2,12 @@ import UserModel from "../models/UserModel.js";
 import bcrypt from "bcrypt";
 
 async function getLogin(req, res) {
-    res.render("login", { serverMessage: req.query });
+    // res.render("login", { serverMessage: req.query });
+    res.render("login");
+}
+
+async function getRegisterForm(req, res) {
+    res.render("registerForm");
 }
 
 // async function login(req, res) {
@@ -40,7 +45,4 @@ async function getLogin(req, res) {
 // }
 
 
-export default {
-    getLogin,
-    // login
-}
+export default { getLogin, getRegisterForm }
