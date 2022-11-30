@@ -25,15 +25,21 @@
         </div>
     <% }) %>
 
-    <form action="" method="post" class="flex">
+    <form action="/ads" method="post" class="flex">
         <input type="text" name="title" id="title" placeholder="Title">
-        <input type="text" name="category" id="category" placeholder="Category">
+        <!-- <input type="text" name="category" id="category" placeholder="Category"> -->
+        <select name="category" id="category">
+            <option value="sofas">Sofas</option>
+            <option value="tables">Tables</option>
+            <option value="chairs">Chairs</option>
+            <option value="lamps">Lamps</option>
+        </select>
         <input type="number" name="price" id="price" placeholder="Price">
         <textarea name="description" id="description" cols="20" rows="10" placeholder="Description"></textarea>
         <label for="public">Post Ad</label>
-        <input type="radio" name="visibility" id="public">
+        <input type="radio" name="public" id="visibility">
         <label for="private">Save as draft</label>
-        <input type="radio" name="visibility" id="private">
+        <input type="radio" name="private" id="visibility">
 
         <input type="submit" value="Submit">
     </form>

@@ -42,10 +42,10 @@ const AdSchema = new mongoose.Schema( {
     default: "public"
   },
   // refer to collection for user
-  postedBy: {
-    type: mongoose.Schema.ObjectId, 
-    ref: "Users"
-  }
+  // postedBy: {
+  //   type: mongoose.Schema.ObjectId, 
+  //   ref: "Users"
+  // }
 }, { collection: "Ads" });
 
 const AdModel = mongoose.model("Ads", AdSchema);

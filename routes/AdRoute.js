@@ -17,9 +17,9 @@ const AdRouter = Router();
 
 // AdRouter.use(ensureAuth);
 
-AdRouter.get("/", AdController.getAllAds);
+AdRouter.get("/ads", AdController.getAllAds);
+AdRouter.post("/ads", AdController.publishAd);
 // AdRouter.put("/ads/:id", AdController);
-// AdRouter.post("/ads", AdController);
 // AdRouter.delete("/ads/:id", AdController);
 
 export default AdRouter;
