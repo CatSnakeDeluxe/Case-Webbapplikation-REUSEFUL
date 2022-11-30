@@ -4,12 +4,12 @@ const LoginSchema = {
     username: {
       type: String,
       required: "must be filled in",
-      min: 3, max: 20
+      minLength: 3, maxLength: 20
     },
     password: {
       type: String,
       required: "must be filled in",
-      min: 3, max: 60
+      minLength: 3, maxLength: 60
     },
   };
   

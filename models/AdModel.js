@@ -10,9 +10,9 @@ if (!process.env.MONGO_CONNECTION_STR) {
   exit();
 }
 
-// database connection
+// // database connection
 const url = process.env.MONGO_CONNECTION_STR;
-mongoose.connect(url);
+mongoose.connect(url) ? console.log("Connected") : console.log("Connection Failed")
 
 // ad schema 
 const AdSchema = new mongoose.Schema( {
@@ -36,6 +36,16 @@ const AdSchema = new mongoose.Schema( {
     type: String,
     required: "must be filled in",
   },
+  visibility: {
+    type: String,
+    enum: ["public", "private"],
+    default: "public"
+  },
+  // refer to collection for user
+  postedBy: {
+    type: mongoose.Schema.ObjectId, 
+    ref: "Users"
+  }
 }, { collection: "Ads" });
 
 const AdModel = mongoose.model("Ads", AdSchema);

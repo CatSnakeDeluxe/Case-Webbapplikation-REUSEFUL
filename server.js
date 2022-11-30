@@ -2,19 +2,33 @@ import express from "express";
 import session from "express-session";
 import dotenv from "dotenv";
 import AdRouter from "./routes/AdRoute.js";
-import LoginRouter from "./routes/LoginRoute.js";
+import UserRouter from "./routes/UserRoute.js";
+// import UserRouter from "./routes/loginHenryStyle.js";
 import RegisterRouter from "./routes/RegisterRoute.js"
 
 dotenv.config();
 
 const app = express();
 
+app.use(session({
+    secret: process.env.SESSION_SECRET || "secret",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 * 5 }
+}));
+
 app.set("view engine", "ejs");
 
-// const __dirname = path.dirname(new URL(import.meta.url).pathname);
+function checkSession(req, res, next) {
+    console.log(req.session);
+  
+    next();
+}
+
+// tell app to use middleware function everywhere
+app.use(checkSession);
 
 app.use(express.static("./"));
-// app.use(express.static(__dirname));
 
 app.use(
     session({
@@ -30,7 +44,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static("./public"));
 
 app.use('/', AdRouter);
-app.use('/login', LoginRouter);
+app.use('/login', UserRouter);
 app.use('/register', RegisterRouter);
 
 app.listen(process.env.PORT, (req, res) => {

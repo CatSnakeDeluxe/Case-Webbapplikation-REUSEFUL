@@ -25,5 +25,18 @@
         </div>
     <% }) %>
 
+    <form action="" method="post" class="flex">
+        <input type="text" name="title" id="title" placeholder="Title">
+        <input type="text" name="category" id="category" placeholder="Category">
+        <input type="number" name="price" id="price" placeholder="Price">
+        <textarea name="description" id="description" cols="20" rows="10" placeholder="Description"></textarea>
+        <label for="public">Post Ad</label>
+        <input type="radio" name="visibility" id="public">
+        <label for="private">Save as draft</label>
+        <input type="radio" name="visibility" id="private">
+
+        <input type="submit" value="Submit">
+    </form>
+
 </body>
 </html>

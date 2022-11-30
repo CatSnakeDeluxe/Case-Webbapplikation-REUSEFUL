@@ -142,3 +142,9 @@ h2 {
     border-radius: 5px;
     margin: 0.4rem 0;
 }
+
+/* FORM */
+
+form {
+    flex-direction: column;
+}
