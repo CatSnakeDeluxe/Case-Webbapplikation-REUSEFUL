@@ -55,9 +55,9 @@ userSchema.pre("save", function (next) {
     }
 }, { collection: "Users" });
 
-userSchema.methods.comparePassword = async function (plainTextPassword, hashedPassword) {
+userSchema.methods.comparePassword = async function (inputPassword, hashedPassword) {
     try {
-        return await bcrypt.compare(plainTextPassword, hashedPassword);
+        return await bcrypt.compare(inputPassword, hashedPassword);
     } catch (err) {
         throw new Error("Incorrect password", err);
     }

@@ -1,6 +1,6 @@
 import UserModel from "../models/UserModel.js";
-import bcrypt from "bcrypt";
 
+// RENDER PAGES
 async function getLogin(req, res) {
     // res.render("login", { serverMessage: req.query });
     res.render("login");
@@ -10,14 +10,13 @@ async function getRegisterForm(req, res) {
     res.render("registerForm");
 }
 
+// REGISTER AND LOGIN FUNCTIONS
 async function registerUser(req, res) {
     try {
-    // collect data from body
       const { username, email, password } = req.body;
 
       const newUserDocument = new UserModel({ username, email, password });
-      
-      // save to database
+
       newUserDocument.save();
 
     } catch (error) {
@@ -27,39 +26,36 @@ async function registerUser(req, res) {
     }
 }
 
-// async function login(req, res) {
-//     try {
-//         // collect data from body
-//         const {username, password} = req.body;
+async function login(req, res) {
+    try {
+        const {username, password} = req.body;
 
-//         // find user
-//         const user = await UserModel.findOne({username});
+        const user = await UserModel.findOne({ username });
 
-//         if (!user) {
-//             throw new Error("No user found with that username");
-//         }
+        if (!user) {
+            throw new Error("No user found with that username");
+        }
 
-//         // compare password with user input
-//         const isAuth = await user.comparePassword(password, user.password);
+        const isAuth = await user.comparePassword(password, user.password);
 
+        if (!isAuth) {
+            throw new Error("Not authenticated");
+        }
 
-//         if (!isAuth) {
-//             throw new Error("Not authenticated");
-//         }
+        req.session.isAuth = true;
+        req.session.userId = user._id;
 
-//         req.session.isAuth = true;
-//         req.session.userId = user._id;
+    } catch (err) {
+        console.error(err);
+        const q = (new URLSearchParams({type: "fail", message: "failed to login"})).toString();
 
-//     } catch (err) {
-//         console.error(err);
-//         const q = (new URLSearchParams({type: "fail", message: "failed to login"})).toString();
-
-//         return res.redirect(`/login${q}`)
-//     } finally {
-//         const q = (new URLSearchParams({type: "success", message: "successfully logged in"})).toString();
-//         return res.redirect(`/?${q}`);
-//     }
-// }
+        return res.redirect(`/login${q}`)
+    } finally {
+        const q = (new URLSearchParams({type: "success", message: "successfully logged in"})).toString();
+        // return res.redirect(`/?${q}`);
+        res.redirect("/ads");
+    }
+}
 
 
-export default { getLogin, getRegisterForm, registerUser }
+export default { getLogin, login, getRegisterForm, registerUser }
