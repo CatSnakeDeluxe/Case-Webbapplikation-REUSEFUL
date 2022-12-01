@@ -1,11 +1,12 @@
 import AdModel from "../models/AdModel.js";
 
 async function getAllAds(req, res) {
-    // const publicAds = await AdModel.find({visibility: 'public'}).populate("postedBy", "username").exec();
+    // const publicAds = await AdModel.find({ visibility: "public" }).populate("postedBy", "username").exec();
+    const Ads = await AdModel.find({ visibility: "public" });
     // const {userId} = req.session;
     // const UserAds await AdModel.find({postedBy: ObjectId(userId)});
     
-    const Ads = await AdModel.find();
+    // const Ads = await AdModel.find();
     const locals = { Ads };
     console.log(Ads);
     // return instead
