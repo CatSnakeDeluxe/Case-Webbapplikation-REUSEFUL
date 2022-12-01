@@ -1,129 +1,19 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css">
-    <title>Hello world</title>
-    <style>
-      .success {
-        color: green;
-      }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
 
-      .fail {
-        color: orange;
-      }
+    <h2 class="flex pageHeading">User Page</h2>
 
-    </style>
-  </head>
-  <body>
-    <main>
-    <div>
-      <% if (serverMessage) { %>
-        <span class="<%= serverMessage.type %>"><%= serverMessage.message %></span>
-      <% } %> 
-    </div>
+    <h3>Your Active Ads</h3>
 
-    <form action="/quotes" method="POST">
-      <input type="text" placeholder="name" name="name" />
-      <input type="text" placeholder="quote" name="quote" />
-      <button type="submit">Submit</button>
-    </form>
-
-    <h2>Public Quotes</h2>
-    <ul>
-      <% for(let i = 0; i < publicQuotes.length; i++) { %>
-      <li>
-        <span><%= publicQuotes[i].name %></span>
-        <b><%= publicQuotes[i].quote %></b>
-        <small>, posted by <%= publicQuotes[i].postedBy.username %></small>
-      </li>
-      <% } %>
-    </ul>
-
-    <h2>Your Quotes</h2>
-    <ul>
-      <% for(let i = 0; i < userQuotes.length; i++) { %>
-      <li>
-        <span><%= userQuotes[i].name %></span>
-        <b><%= userQuotes[i].quote %></b>
-        <small>, posted by you </small>
-        <span>Visibility: <%= userQuotes[i].visibility %></span>
-        <button
-          onclick="handleEdit('<%= userQuotes[i]._id %>', '<%= userQuotes[i].name %>', '<%= userQuotes[i].quote %>')"
-        >
-          edit
-        </button>
-        <button onclick="handleDelete('<%= userQuotes[i]._id %>')">delete</button>
-      </li>
-      <% } %>
-    </ul>
-
-    <!-- Should appear after a quotes wants to be edited -->
-    <form id="editForm" hidden>
-      <h2>Edit quote</h2>
-      <input type="text" placeholder="name" name="name" />
-      <input type="text" placeholder="quote" name="quote" />
-      <button type="submit">Save Change</button>
-    </form>
-  </main>
-    <script>
-      // fetch("/quotes").then(resp => resp.json()).then(quotes => renderQuotes(quotes));
-      function handleDelete(id) {
-        console.log("Delete was triggered with id", id);
-
-        fetch(`/quotes/${id}`, { method: "DELETE" })
-          .then((resp) => {
-            console.log(resp);
-            if (resp.redirected) {
-              window.location.href = resp.url;
-            }
-          })
-          .catch((err) => console.log(err));
-      }
-
-      function handleEdit(id, oldName, oldQuote) {
-        console.log("I was was clicked!", id);
-        // access each input and repopulate them
-        const editFormEl = document.getElementById("editForm");
-
-        // name
-        editFormEl.elements.name.value = oldName;
-
-        // quote
-        editFormEl.elements.quote.value = oldQuote;
-
-        // Show edit form
-        document.getElementById("editForm").hidden = false;
-
-        // Setup submit handler for edit form
-        editFormEl.onsubmit = (evt) => {
-          evt.preventDefault();
-          // DONE send a put request to server
-          // with new values for name and quote
-          // with current selected id
-
-          const newName = editFormEl.elements.name.value;
-
-          const newQuote = editFormEl.elements.quote.value;
-
-          // tip: use fetch
-          fetch(`/quotes/${id}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json", // let server know that body is a string of json
-            },
-            body: JSON.stringify({ name: newName, quote: newQuote }),
-          })
-            .then((resp) => {
-              console.log(resp);
-              if (resp.redirected) {
-                window.location.href = resp.url;
-              }
-            })
-            .catch((err) => console.error(err));
-        };
-      }
-    </script>
-  </body>
+    <h3>Your Drafts</h3>
+</body>
 </html>

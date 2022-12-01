@@ -8,6 +8,7 @@ async function getAllAds(req, res) {
     const Ads = await AdModel.find();
     const locals = { Ads };
     console.log(Ads);
+    // return instead
     res.render("ads", locals);
 }
 

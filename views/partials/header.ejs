@@ -7,7 +7,7 @@
             <a class="pageHeading sitename" href="/ads"><h1>RE:USEFUL</h1></a>
         </div>
         <div>
-            <% if (locals) { %>
+            <% if (locals.userID) { %>
                 <a href="#"><i class="userLoggedIn fa-solid fa-circle-plus"></i></a>
                 <a href="#"><i class="userLoggedIn fa-solid fa-user"></i></a>
                 <a href="#"><i class="userLoggedIn fa-solid fa-arrow-right-from-bracket"></i></a>
@@ -17,10 +17,12 @@
         </div>
     </div>
     <div class="filterOptions flex">
-        <a class="filterBtn active" href="#">All</a>
-        <a class="filterBtn" href="#">Sofas</a>
+        <a href="/ads">Take Me To The Ads</a>
+        <!-- <a class="filterBtn active" href="#"></a> -->
+        <!-- <a class="filterBtn" href="#">Sofas</a>
         <a class="filterBtn" href="#">Tables</a>
         <a class="filterBtn" href="#">Chairs</a>
-        <a class="filterBtn" href="#">Lamps</a>
+        <a class="filterBtn" href="#">Lamps</a> -->
     </div>
+    <%= locals.userID %>
 </header>
