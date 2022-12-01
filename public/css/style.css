@@ -159,3 +159,11 @@ form {
     flex-direction: column;
 }
 
+/* SERVER MESSAGE */
+#serverMessage {
+    background: var(--white);
+    color: var(--darkGreen);
+    margin: auto;
+    text-align: center;
+}
+

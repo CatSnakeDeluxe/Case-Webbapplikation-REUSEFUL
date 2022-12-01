@@ -7,9 +7,9 @@
             <a class="pageHeading sitename" href="/ads"><h1>RE:USEFUL</h1></a>
         </div>
         <div>
-            <% if (locals.userID) { %>
-                <a href="#"><i class="userLoggedIn fa-solid fa-circle-plus"></i></a>
-                <a href="#"><i class="userLoggedIn fa-solid fa-user"></i></a>
+            <% if (true) { %>
+                <a href="/adForm"><i class="userLoggedIn fa-solid fa-circle-plus"></i></a>
+                <a href="/userPage"><i class="userLoggedIn fa-solid fa-user"></i></a>
                 <a href="#"><i class="userLoggedIn fa-solid fa-arrow-right-from-bracket"></i></a>
                 <%} else { %>
                 <a class="btn" href="/login">Log In</a>
@@ -24,5 +24,4 @@
         <a class="filterBtn" href="#">Chairs</a>
         <a class="filterBtn" href="#">Lamps</a> -->
     </div>
-    <%= locals.userID %>
 </header>

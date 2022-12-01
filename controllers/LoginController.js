@@ -25,14 +25,16 @@ async function login(req, res) {
         req.session.userId = user._id;
     } catch (err) {
         console.error(err);
-        const q = (new URLSearchParams({type: "fail", message: "failed to login"})).toString();
-        return res.redirect(`/login${q}`);
+        // const q = (new URLSearchParams({type: "fail", message: "failed to login"})).toString();
+        return res.redirect("login");
     } finally {
-        const q = (new URLSearchParams({type: "success", message: "successfully logged in"})).toString();
+        // const q = (new URLSearchParams({type: "success", message: "successfully logged in"})).toString();
         // return res.redirect(`/ads?${q}`), locals;
         // return res.redirect("/ads"), locals;
+        const serverMessage = "Succesfully Logged In";
+        const locals = { serverMessage };
         res.locals.userID = req.session.userId;
-        res.render("userPage");
+        res.render("userPage", locals);
     }
 }
 

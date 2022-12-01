@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import AdRouter from "./routes/AdRoute.js";
 import RegisterRouter from "./routes/RegisterRoute.js";
 import LoginRouter from "./routes/LoginRoute.js";
+import UserPageRouter from "./routes/UserPageRoute.js";
 
 dotenv.config();
 
@@ -44,6 +45,7 @@ app.use(express.static("./public"));
 app.use('/', AdRouter);
 app.use('/login', LoginRouter);
 app.use('/register', RegisterRouter);
+app.use('/userPage', UserPageRouter);
 
 app.listen(process.env.PORT, (req, res) => {
     console.log(`Server running on port ${process.env.PORT}`);
