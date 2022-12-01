@@ -30,7 +30,7 @@ header {
 .topHeader {
     align-items: center;
     justify-content: space-around;
-    padding: 0.4rem;
+    padding: 0.5rem;
 }
 
 .topHeader h1 {
@@ -81,7 +81,17 @@ header {
 
 .filterBtn.active {
     background-color: var(--lightGreen);
-  }
+}
+
+.userLoggedIn {
+    color: var(--darkGreen);
+    padding: 0 0.4rem;
+    font-size: 1.2rem;
+}
+
+.sitename {
+    margin-left: 0.4rem;
+}
 
 /* PAGE HEADINGS */
 

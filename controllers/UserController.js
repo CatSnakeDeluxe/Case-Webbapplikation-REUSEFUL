@@ -1,5 +1,7 @@
 import UserModel from "../models/UserModel.js";
 
+let locals;
+
 // RENDER PAGES
 async function getLogin(req, res) {
     // res.render("login", { serverMessage: req.query });
@@ -45,6 +47,10 @@ async function login(req, res) {
         req.session.isAuth = true;
         req.session.userId = user._id;
 
+        // const UserID = req.session.userId;
+
+        // locals = { UserID };
+
     } catch (err) {
         console.error(err);
         const q = (new URLSearchParams({type: "fail", message: "failed to login"})).toString();
@@ -52,8 +58,7 @@ async function login(req, res) {
         return res.redirect(`/login${q}`)
     } finally {
         const q = (new URLSearchParams({type: "success", message: "successfully logged in"})).toString();
-        // return res.redirect(`/?${q}`);
-        res.redirect("/ads");
+        return res.redirect(`/ads?${q}`);
     }
 }
 

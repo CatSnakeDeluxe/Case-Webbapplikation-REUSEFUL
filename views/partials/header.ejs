@@ -4,10 +4,16 @@
             <div class="imgContainer">
                 <img src="../../public/img/logo.png" alt="logo">
             </div>
-            <a class="pageHeading" href="/ads"><h1>RE:USEFUL</h1></a>
+            <a class="pageHeading sitename" href="/ads"><h1>RE:USEFUL</h1></a>
         </div>
         <div>
-            <a class="btn" href="/login">Log In</a> 
+            <% if (locals) { %>
+                <a href="#"><i class="userLoggedIn fa-solid fa-circle-plus"></i></a>
+                <a href="#"><i class="userLoggedIn fa-solid fa-user"></i></a>
+                <a href="#"><i class="userLoggedIn fa-solid fa-arrow-right-from-bracket"></i></a>
+                <%} else { %>
+                <a class="btn" href="/login">Log In</a>
+            <% } %>
         </div>
     </div>
     <div class="filterOptions flex">

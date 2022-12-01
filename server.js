@@ -12,14 +12,13 @@ app.use(session({
     secret: process.env.SESSION_SECRET || "secret",
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60000 * 5 }
+    cookie: { maxAge: Number(process.env.SESSION_MAXAGE) }
 }));
 
 app.set("view engine", "ejs");
 
 function checkSession(req, res, next) {
     console.log(req.session);
-  
     next();
 }
 
