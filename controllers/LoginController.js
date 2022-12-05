@@ -6,6 +6,7 @@ async function getLogin(req, res) {
 }
 
 async function login(req, res) {
+    let query = null;
     let locals = {};
     try {
         const { username, password } = req.body;
@@ -27,15 +28,14 @@ async function login(req, res) {
         locals.userId = user._id;
     } catch (err) {
         console.error(err);
-        return res.redirect("login");
+        query = new URLSearchParams({type: "fail", message: "Failed To Log In"});
+
+        return res.redirect(`/login?${query}`);
         
     } finally {
-        // const serverMessage = "Succesfully Logged In";
-        // locals = { serverMessage, userId: user._id };
-        locals.serverMessage = "Succesfully Logged In";
-        // res.locals.userID = req.session.userId;
-        // res.render("userPage", locals);
-        res.redirect("/userPage");
+        query = new URLSearchParams({type: "success", message: "Successfully Logged In"});
+        res.redirect(`/userPage?${query}`);
+        // res.redirect("/userPage");
     }
 }
 

@@ -5,6 +5,7 @@ async function getRegisterForm(req, res) {
 }
 
 async function registerUser(req, res) {
+    let query = null;
     try {
       const { username, email, password } = req.body;
 
@@ -14,8 +15,12 @@ async function registerUser(req, res) {
 
     } catch (error) {
         console.error(error.message);
+        query = new URLSearchParams({type: "fail", message: "Couldn't Create User"});
+
     } finally {
-        res.redirect("/login");
+        query = new URLSearchParams({type: "success", message: "Successfully Created User"});
+        res.redirect(`/login?${query}`);
+        // res.redirect("/login");
     }
 }
 
