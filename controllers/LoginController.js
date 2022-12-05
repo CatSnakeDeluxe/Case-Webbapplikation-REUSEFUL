@@ -6,6 +6,7 @@ async function getLogin(req, res) {
 }
 
 async function login(req, res) {
+    let locals = {};
     try {
         const { username, password } = req.body;
 
@@ -23,18 +24,18 @@ async function login(req, res) {
 
         req.session.checkUserAuth = true;
         req.session.userId = user._id;
+        locals.userId = user._id;
     } catch (err) {
         console.error(err);
-        // const q = (new URLSearchParams({type: "fail", message: "failed to login"})).toString();
         return res.redirect("login");
+        
     } finally {
-        // const q = (new URLSearchParams({type: "success", message: "successfully logged in"})).toString();
-        // return res.redirect(`/ads?${q}`), locals;
-        // return res.redirect("/ads"), locals;
-        const serverMessage = "Succesfully Logged In";
-        const locals = { serverMessage };
-        res.locals.userID = req.session.userId;
-        res.render("userPage", locals);
+        // const serverMessage = "Succesfully Logged In";
+        // locals = { serverMessage, userId: user._id };
+        locals.serverMessage = "Succesfully Logged In";
+        // res.locals.userID = req.session.userId;
+        // res.render("userPage", locals);
+        res.redirect("/userPage");
     }
 }
 

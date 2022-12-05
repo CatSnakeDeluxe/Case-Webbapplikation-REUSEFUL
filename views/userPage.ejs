@@ -13,13 +13,20 @@
 <body>
     <%- include("./partials/header.ejs") %>
 
-    <p id="serverMessage"><%= locals.serverMessage %></p>
-
     <h2 class="flex pageHeading">User Page</h2>
 
-    <h3>Your Active Ads</h3>
-
-    <h3>Your Drafts</h3>
+    <% locals.UserAds.forEach(Ad => { %>
+        <div class="ad">
+            <div class="flex titleCategory">
+                <div>
+                    <h3 class="title"><%= Ad.title %></h3>
+                    <p class="category"><%= Ad.category %></p>
+                </div>
+                <h4 class="price"><%= Ad.price %></h4>
+            </div>
+            <p><%= Ad.visibility %></p>
+        </div>
+    <% }) %>
 
     <script>
         setTimeout(() => {

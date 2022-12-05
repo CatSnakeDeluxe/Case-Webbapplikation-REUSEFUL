@@ -1,9 +1,17 @@
-async function getUserPage(req, res) {
-    res.render("userPage");
-}
+import AdModel from "../models/AdModel.js";
+import { ObjectId } from "mongodb";
+
+// async function getUserPage(req, res) {
+//     res.render("userPage");
+// }
 
 async function getUserAds(req, res) {
-    // Get ads for logged in user
+    const userId = req.session.userId;
+    const UserAds = await AdModel.find({ postedBy: ObjectId(userId) });
+    console.log("USER ID", userId);
+    const locals = { UserAds, userId };
+
+    res.render("userPage", locals);
 }
 
-export default { getUserPage };
+export default { getUserAds };

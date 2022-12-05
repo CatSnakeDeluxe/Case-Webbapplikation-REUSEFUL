@@ -12,7 +12,7 @@ if (!process.env.MONGO_CONNECTION_STR) {
 
 // // database connection
 const url = process.env.MONGO_CONNECTION_STR;
-mongoose.connect(url) ? console.log("Connected") : console.log("Connection Failed")
+mongoose.connect(url) ? console.log("Connected") : console.log("Connection Failed");
 
 // ad schema 
 const AdSchema = new mongoose.Schema( {

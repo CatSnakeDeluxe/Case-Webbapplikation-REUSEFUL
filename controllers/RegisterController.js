@@ -13,7 +13,7 @@ async function registerUser(req, res) {
       newUserDocument.save();
 
     } catch (error) {
-        console.error(err.message);
+        console.error(error.message);
     } finally {
         res.redirect("/login");
     }

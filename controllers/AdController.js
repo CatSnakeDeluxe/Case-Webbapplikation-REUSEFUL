@@ -1,4 +1,5 @@
 import AdModel from "../models/AdModel.js";
+import { ObjectId } from "mongodb";
 
 async function getAllAds(req, res) {
     // const publicAds = await AdModel.find({ visibility: "public" }).populate("postedBy", "username").exec();
@@ -17,13 +18,13 @@ async function publishAd(req, res) {
     // let query = null;
   
     try {
-      // collect data from body
+        // collect data from body
         const { title, category, price, description, visibility } = req.body;
     
-        //   const postedBy = ObjectId(req.session.userId);
+        const postedBy = ObjectId(req.session.userId);
     
         // create Quote document instance locally
-        const newAdDocument = new AdModel({ title, category, price, description, visibility });
+        const newAdDocument = new AdModel({ title, category, price, description, visibility, postedBy });
         
         // save to database
         newAdDocument.save();
