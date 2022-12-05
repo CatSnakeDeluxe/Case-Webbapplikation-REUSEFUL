@@ -4,18 +4,14 @@ import { ObjectId } from "mongodb";
 async function getAllAds(req, res) {
     // const publicAds = await AdModel.find({ visibility: "public" }).populate("postedBy", "username").exec();
     const Ads = await AdModel.find({ visibility: "public" });
-    // const {userId} = req.session;
-    // const UserAds await AdModel.find({postedBy: ObjectId(userId)});
-    
-    // const Ads = await AdModel.find();
-    const locals = { Ads };
-    console.log(Ads);
-    // return instead
+    const userId = req.session.userId;
+    const locals = { Ads, userId };
+
     res.render("ads", locals);
 }
 
 async function publishAd(req, res) {
-    // let query = null;
+    let query = null;
   
     try {
         // collect data from body
@@ -33,17 +29,20 @@ async function publishAd(req, res) {
     //   query = new URLSearchParams({type: "success", message: "Successfully created quote!"});
     } catch (err) {
       // create message that operation was unsuccessfull
-    //   query = new URLSearchParams({type: "fail", message: err.message});
+      query = new URLSearchParams({type: "fail", message: err.message});
         console.error(err.message);
     } finally {
     //   const queryStr = query.toString();
+    query = new URLSearchParams({type: "success", message: "Successfully Created Ad"});
     //   res.redirect(`/quotes?${queryStr}`);
-        res.redirect("/ads");
+        res.redirect(`/ads?${query}`);
     }
   }
 
   async function getAdForm(req, res) {
-    res.render("adForm");
+    const userId = req.session.userId;
+    const locals = { userId };
+    res.render("adForm", locals);
   }
 
 export default { getAllAds, publishAd, getAdForm };

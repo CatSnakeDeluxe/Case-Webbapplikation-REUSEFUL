@@ -1,10 +1,6 @@
 import AdModel from "../models/AdModel.js";
 import { ObjectId } from "mongodb";
 
-// async function getUserPage(req, res) {
-//     res.render("userPage");
-// }
-
 async function getUserAds(req, res) {
     const userId = req.session.userId;
     const UserAds = await AdModel.find({ postedBy: ObjectId(userId) });

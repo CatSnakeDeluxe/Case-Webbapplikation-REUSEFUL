@@ -24,7 +24,6 @@ function checkSession(req, res, next) {
     next();
 }
 
-// tell app to use middleware function everywhere
 app.use(checkSession);
 
 app.use(express.static("./"));
