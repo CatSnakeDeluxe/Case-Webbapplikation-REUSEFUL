@@ -17,7 +17,6 @@ function ensureAuth(req,res,next) {
 
 UserPage.use(ensureAuth);
 
-// UserPage.get("/", UserPageController.getUserPage);
 UserPage.get("/", UserPageController.getUserAds);
 
 export default UserPage;

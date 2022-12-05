@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 
 async function getAllAds(req, res) {
     // const publicAds = await AdModel.find({ visibility: "public" }).populate("postedBy", "username").exec();
-    const Ads = await AdModel.find({ visibility: "public" });
+    const Ads = await AdModel.find({ visibility: "public" }).populate("postedBy", "username").exec();
     const userId = req.session.userId;
     const locals = { Ads, userId };
 

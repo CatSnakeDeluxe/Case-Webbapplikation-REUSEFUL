@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import AdRouter from "./routes/AdRoute.js";
 import RegisterRouter from "./routes/RegisterRoute.js";
 import LoginRouter from "./routes/LoginRoute.js";
+import LogoutRouter from "./routes/LogoutRoute.js";
 import UserPageRouter from "./routes/UserPageRoute.js";
 
 dotenv.config();
@@ -43,6 +44,7 @@ app.use(express.static("./public"));
 
 app.use('/', AdRouter);
 app.use('/login', LoginRouter);
+app.use('/login', LogoutRouter);
 app.use('/register', RegisterRouter);
 app.use('/userPage', UserPageRouter);
 
