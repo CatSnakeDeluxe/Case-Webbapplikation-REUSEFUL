@@ -17,6 +17,10 @@
 
     <% locals.UserAds.forEach(Ad => { %>
         <div class="ad">
+            <div class="optionsDiv flex">
+                <i class="fa-solid fa-pencil"></i>
+                <i class="fa-regular fa-trash-can"></i>
+            </div>
             <div class="flex titleCategory">
                 <div>
                     <h3 class="title"><%= Ad.title %></h3>

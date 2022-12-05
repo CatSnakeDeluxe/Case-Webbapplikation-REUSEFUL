@@ -44,7 +44,7 @@ app.use(express.static("./public"));
 
 app.use('/', AdRouter);
 app.use('/login', LoginRouter);
-app.use('/login', LogoutRouter);
+app.use('/logout', LogoutRouter);
 app.use('/register', RegisterRouter);
 app.use('/userPage', UserPageRouter);
 

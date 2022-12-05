@@ -29,14 +29,14 @@ async function login(req, res) {
     } catch (err) {
         console.error(err);
         query = new URLSearchParams({type: "fail", message: "Failed To Log In"});
-
         return res.redirect(`/login?${query}`);
-        
     } finally {
         query = new URLSearchParams({type: "success", message: "Successfully Logged In"});
         res.redirect(`/userPage?${query}`);
         // res.redirect("/userPage");
     }
 }
+
+
 
 export default { getLogin, login }

@@ -25,11 +25,12 @@ async function publishAd(req, res) {
         // save to database
         newAdDocument.save();
     } catch (err) {
-      query = new URLSearchParams({type: "fail", message: err.message});
+        query = new URLSearchParams({type: "fail", message: err.message});
         console.error(err.message);
+        return res.redirect(`/adForm?${query}`);
     } finally {
-      query = new URLSearchParams({type: "success", message: "Successfully Created Ad"});
-      res.redirect(`/ads?${query}`);
+        query = new URLSearchParams({type: "success", message: "Successfully Created Ad"});
+        res.redirect(`/ads?${query}`);
     }
   }
 
