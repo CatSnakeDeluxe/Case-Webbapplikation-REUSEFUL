@@ -20,7 +20,6 @@ async function registerUser(req, res) {
     } finally {
         query = new URLSearchParams({type: "success", message: "Successfully Created User"});
         res.redirect(`/login?${query}`);
-        // res.redirect("/login");
     }
 }
 

@@ -18,5 +18,6 @@ function ensureAuth(req,res,next) {
 UserPage.use(ensureAuth);
 
 UserPage.get("/", UserPageController.getUserAds);
+// UserPage.get("/editForm", UserPageController.getEditForm);
 
 export default UserPage;

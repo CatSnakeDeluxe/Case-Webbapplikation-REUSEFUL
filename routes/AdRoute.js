@@ -21,7 +21,6 @@ AdRouter.get("/ads", AdController.getAllAds);
 AdRouter.get("/adForm", AdController.getAdForm);
 AdRouter.post("/ads", AdController.publishAd);
 AdRouter.delete("/:id", AdController.deleteAd);
-// AdRouter.put("/ads/:id", AdController);
-// AdRouter.delete("/ads/:id", AdController);
+AdRouter.put("/:id", AdController.updateAd);
 
 export default AdRouter;

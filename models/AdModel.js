@@ -28,10 +28,11 @@ const AdSchema = new mongoose.Schema( {
     type: Number,
     required: "must be filled in",
   },
-//   img: {
-//     type: Number,
-//     required: "must be filled in",
-//   },
+  // img:
+  // {
+  //     data: Buffer,
+  //     contentType: String
+  // },
   description: {
     type: String,
     required: "must be filled in",

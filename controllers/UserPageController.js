@@ -10,4 +10,10 @@ async function getUserAds(req, res) {
     res.render("userPage", locals);
 }
 
+// async function getEditForm(req, res) {
+//     const userId = req.session.userId;
+//     const locals = { userId };
+//     res.render("editForm", locals);
+// }
+
 export default { getUserAds };

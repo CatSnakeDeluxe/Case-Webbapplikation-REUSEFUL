@@ -29,22 +29,13 @@ app.use(checkSession);
 
 app.use(express.static("./"));
 
-app.use(
-    session({
-        secret: process.env.SESSION_SECRET,
-        resave: false,
-        saveUninitialized: true,
-        cookie: { maxAge: Number(process.env.SESSION_MAXAGE) },
-    })
-);
-
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("./public"));
 
 app.use('/', AdRouter);
 app.use('/login', LoginRouter);
-app.use('/logout', LogoutRouter);
+app.use('/login', LogoutRouter);
 app.use('/register', RegisterRouter);
 app.use('/userPage', UserPageRouter);
 

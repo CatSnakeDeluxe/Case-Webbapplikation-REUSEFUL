@@ -169,9 +169,17 @@ a {
 .panel {
     display: none;
     overflow: hidden;
-  }
+}
+
+.dollar {
+    margin-right: 0.3rem;
+}
 
 /* FORM */
+
+#editForm {
+    display: none;
+}
 
 form {
     flex-direction: column;

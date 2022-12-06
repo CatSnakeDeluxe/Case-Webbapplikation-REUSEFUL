@@ -13,4 +13,10 @@ h3 {
 
 .fa-pencil, .fa-trash-can {
     color: var(--brown);
+    font-size: 1rem;
+}
+
+.btnAdUserPage {
+    border: none;
+    background: var(--melon);
 }

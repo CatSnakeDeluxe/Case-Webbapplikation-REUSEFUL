@@ -6,7 +6,7 @@ async function getAllAds(req, res) {
   const userId = req.session.userId;
   const locals = { Ads, userId };
 
-  res.render("ads", locals);
+  return res.render("ads", locals);
 }
 
 async function publishAd(req, res) {
@@ -52,31 +52,29 @@ async function deleteAd(req, res) {
   } catch (err) {
     console.error(err.message);
   } finally {
+    // ADD QUERYS
     res.redirect("/userPage");
   }
 }
 
-// async function updateQuote(req, res) {
-//   try {
-//     // get the id of the request
-//     const id = req.params.id;
+async function updateAd(req, res) {
+  let query = null;
+  try {
+    // get the id of the request
+    const id = req.params.id;
+    const { title, category, price, description, visibility } = req.body;
+    // validate user input
+    // const quoteDoc = new AdModel({ title, category, price, description, visibility });
+    // await quoteDoc.validate();
+    await AdModel.updateOne(
+      { _id: ObjectId(id) }, { title, category, price, description, visibility });
+  } catch (err) {
+    query = new URLSearchParams({ type: "fail", message: err.message });
+    return res.redirect(`/userPage?${query}`);
+  } finally {
+    query = new URLSearchParams({ type: "success", message: "Succesfully Updated Ad" });
+    res.redirect(`/userPage?${query}`);
+  }
+}
 
-//     const { name, quote, visibility } = req.body;
-
-//     // validate user input
-//     const quoteDoc = new QuoteModel({ name, quote, visibility });
-//     await quoteDoc.validate();
-
-//     // find old quote and replace doc from collection
-//     await QuoteModel.updateOne(
-//       { _id: ObjectId(id) },
-//       { name, quote, visibility }
-//     );
-//   } catch (err) {
-//     console.error(err.message);
-//   } finally {
-//     res.redirect("/quotes");
-//   }
-// }
-
-export default { getAllAds, publishAd, getAdForm, deleteAd };
+export default { getAllAds, publishAd, getAdForm, deleteAd, updateAd };

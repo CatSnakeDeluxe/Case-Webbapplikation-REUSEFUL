@@ -14,7 +14,7 @@ async function logout(req, res) {
         return res.redirect(`/userPage?${query}`);
     } finally {
         query = new URLSearchParams({type: "success", message: "Successfully Logged Out"});
-        res.redirect(`/ads?${query}`);
+        res.redirect(`/login?${query}`);
     }
   }
 
