@@ -26,7 +26,10 @@
             </div>
             <div>
                 <p><%= Ad.description %></p>
-                <p>Posted By: <%= Ad.postedBy.username %> </p>
+                <div class="flex adBottom">
+                    <p>Posted By: <%= Ad.postedBy.username %> </p>
+                    <button class="btn contactSeller">Contact Seller</button>
+                </div>
             </div>
         </div>
     <% }) %>

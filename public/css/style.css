@@ -153,6 +153,15 @@ h2 {
     margin: 0.4rem 0;
 }
 
+.adBottom {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contactSeller {
+    border: none;
+}
+
 /* FORM */
 
 form {

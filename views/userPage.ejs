@@ -18,8 +18,8 @@
     <% locals.UserAds.forEach(Ad => { %>
         <div class="ad">
             <div class="optionsDiv flex">
-                <i class="fa-solid fa-pencil"></i>
-                <i class="fa-regular fa-trash-can"></i>
+                <a href="/userPage"><i class="fa-solid fa-pencil"></i></a>
+                <a href="/userPage"><i class="fa-regular fa-trash-can"></i></a>
             </div>
             <div class="flex titleCategory">
                 <div>
@@ -37,6 +37,18 @@
         const msg = document.getElementById("serverMessage");
         msg.style.display = "none";
         }, 5000);
+
+    //     function handleDelete(id) {
+    //     console.log("Delete was triggered with id", id);
+    //     fetch(`/userPage/${id}`, { method: "DELETE" })
+    //       .then((resp) => {
+    //         console.log(resp);
+    //         if (resp.redirected) {
+    //           window.location.href = resp.url;
+    //         }
+    //       })
+    //       .catch((err) => console.log(err));
+    //   }
     </script>
 </body>
 </html>
