@@ -186,10 +186,10 @@ form {
 }
 
 /* SERVER MESSAGE */
-#serverMessage {
+/* #serverMessage {
     background: var(--white);
     color: var(--darkGreen);
     margin: auto;
     text-align: center;
-}
+} */
 

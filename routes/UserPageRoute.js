@@ -21,7 +21,7 @@ UserPageRouter.get("/", UserPageController.getUserAds);
 // UserPage.get("/editForm", UserPageController.getEditForm);
 
 UserPageRouter.get("/adForm", UserPageController.getAdForm);
-UserPageRouter.post("/ads", UserPageController.publishAd);
+UserPageRouter.post("/", UserPageController.publishAd);
 UserPageRouter.delete("/:id", UserPageController.deleteAd);
 UserPageRouter.put("/:id", UserPageController.updateAd);
 

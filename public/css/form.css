@@ -78,11 +78,10 @@ input[type=submit] {
 
 .notAUserYet {
     background: var(--melon);
-    justify-content: center;
-    margin: auto;
     width: 80%;
-    position: relative;
-    top: 17rem;
+    position: fixed;
+    bottom: 2rem;
+    left: 10%;
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;

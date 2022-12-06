@@ -12,7 +12,6 @@ async function getUserAds(req, res) {
 
 async function publishAd(req, res) {
     let query = null;
-  
     try {
       const { title, category, price, description, visibility } = req.body;
   
@@ -27,7 +26,7 @@ async function publishAd(req, res) {
       return res.redirect(`/adForm?${query}`);
     } finally {
       query = new URLSearchParams({ type: "success", message: "Successfully Created Ad" });
-      res.redirect(`/ads?${query}`);
+      res.redirect(`/userPage?${query}`);
     }
   }
   
