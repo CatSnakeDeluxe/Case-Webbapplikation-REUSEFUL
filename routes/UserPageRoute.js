@@ -1,7 +1,7 @@
 import express from "express";
 import UserPageController from "../controllers/UserPageController.js";
 
-const UserPage = express.Router();
+const UserPageRouter = express.Router();
 
 function ensureAuth(req,res,next) {
     console.log("Inside ensureAuth");
@@ -15,9 +15,14 @@ function ensureAuth(req,res,next) {
     }
 }
 
-UserPage.use(ensureAuth);
+UserPageRouter.use(ensureAuth);
 
-UserPage.get("/", UserPageController.getUserAds);
+UserPageRouter.get("/", UserPageController.getUserAds);
 // UserPage.get("/editForm", UserPageController.getEditForm);
 
-export default UserPage;
+UserPageRouter.get("/adForm", UserPageController.getAdForm);
+UserPageRouter.post("/ads", UserPageController.publishAd);
+UserPageRouter.delete("/:id", UserPageController.deleteAd);
+UserPageRouter.put("/:id", UserPageController.updateAd);
+
+export default UserPageRouter;
