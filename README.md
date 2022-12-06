@@ -15,11 +15,16 @@ Open visual studio code and open the folder you want the project in. Open a new 
 Write command in terminal: npm i
 npm i will install all needed dependencies which can be found in package.json
 
-### Step 4: Setup .env file
+### Step 4: Create database
+Create a database at https://www.mongodb.com. Create a cluster and then select connect -> Connect your application. Take the string and paste it in to your .env file as the MONGO_CONNECTION_STR. Don't forget to write which database you want to access in the connection string. Your database name should be located between / and ? in the string. Example: mongodb.net/<yourDataBaseName>?
+
+Make sure your database has two collections: Users Ads
+
+### Step 5: Setup .env file
 You must create a .env file in the root of the project. Look at .env-example for how to set it up.
 
-### Step 5: Start server
+### Step 6: Start server
 Write command in terminal: node server
 
-### Step 5: Open in browser
+### Step 7: Open in browser
 browser url: localhost:<chosen portnumber>/ads
