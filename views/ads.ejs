@@ -17,14 +17,14 @@
 
     <% Ads.forEach(Ad => { %>
         <div class="ad">
-            <div class="flex titleCategory">
+            <div class="flex titleCategory accordion">
                 <div>
                     <h3 class="title"><%= Ad.title %></h3>
                     <p class="category"><%= Ad.category %></p>
                 </div>
                 <h4 class="price"><%= Ad.price %></h4>
             </div>
-            <div>
+            <div class="panel">
                 <p><%= Ad.description %></p>
                 <div class="flex adBottom">
                     <p>Posted By: <%= Ad.postedBy.username %> </p>
@@ -51,6 +51,22 @@
 
         <input type="submit" value="Submit">
     </form> -->
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+var i;
 
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+
+    let panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+    </script>
 </body>
 </html>

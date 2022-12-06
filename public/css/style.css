@@ -114,6 +114,10 @@ h2 {
     top: 8px;
 }
 
+a {
+    color: var(--darkGreen);
+}
+
 /* ADS */
 
 .ad {
@@ -161,6 +165,11 @@ h2 {
 .contactSeller {
     border: none;
 }
+
+.panel {
+    display: none;
+    overflow: hidden;
+  }
 
 /* FORM */
 

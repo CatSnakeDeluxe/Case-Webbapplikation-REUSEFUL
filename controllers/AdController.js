@@ -39,7 +39,7 @@ async function getAdForm(req, res) {
 async function deleteAd(req, res) {
   try {
     // get id from params /userPage/<this-part>
-    const { ID } = req.params;
+    const ID = req.params.id;
     console.log("Trying to delete: ", ID);
 
     // get result from deletion

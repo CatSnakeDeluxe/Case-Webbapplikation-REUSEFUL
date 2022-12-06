@@ -8,8 +8,8 @@
         </div>
         <div>
             <% if (locals.userId) { %>
-                <a href="/ads/adForm"><i class="userLoggedIn fa-solid fa-circle-plus"></i></a>
-                <a href="/ads/userPage"><i class="userLoggedIn fa-solid fa-user"></i></a>
+                <a href="/adForm"><i class="userLoggedIn fa-solid fa-circle-plus"></i></a>
+                <a href="/userPage"><i class="userLoggedIn fa-solid fa-user"></i></a>
                 <a href="/login"><i class="userLoggedIn fa-solid fa-arrow-right-from-bracket"></i></a>
                 <%} else { %>
                 <a class="btn" href="/login">Log In</a>
@@ -18,10 +18,10 @@
     </div>
     <div class="filterOptions flex">
         <a href="/ads">Take Me To The Ads</a>
-        <!-- <a class="filterBtn active" href="#"></a> -->
-        <!-- <a class="filterBtn" href="#">Sofas</a>
-        <a class="filterBtn" href="#">Tables</a>
-        <a class="filterBtn" href="#">Chairs</a>
-        <a class="filterBtn" href="#">Lamps</a> -->
+        <!-- <a class="filterBtn active" onclick="filterSelection('all')" href="#">All</a>
+        <a class="filterBtn" onclick="filterSelection('sofas')" href="#">Sofas</a>
+        <a class="filterBtn" onclick="filterSelection('tables')" href="#">Tables</a>
+        <a class="filterBtn" onclick="filterSelection('chairs')" href="#">Chairs</a>
+        <a class="filterBtn" onclick="filterSelection('lamps')" href="#">Lamps</a> -->
     </div>
 </header>
