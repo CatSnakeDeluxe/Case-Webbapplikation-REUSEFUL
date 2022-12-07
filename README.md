@@ -27,3 +27,8 @@ Write command in terminal: node server
 
 ### Step 7: Open in browser
 browser url: localhost:<chosen portnumber>/ads
+
+TODO
+- filter options
+- add pictures based on category
+- render

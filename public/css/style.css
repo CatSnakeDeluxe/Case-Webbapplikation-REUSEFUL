@@ -177,9 +177,9 @@ a {
 
 /* FORM */
 
-#editForm {
+/* #editForm {
     display: none;
-}
+} */
 
 form {
     flex-direction: column;

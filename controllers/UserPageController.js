@@ -35,6 +35,12 @@ async function publishAd(req, res) {
     const locals = { userId };
     res.render("adForm", locals);
   }
+
+  async function getEditForm(req, res) {
+    const userId = req.session.userId;
+    const locals = { userId };
+    res.render("editForm", locals);
+  }
   
   async function deleteAd(req, res) {
     try {
@@ -77,4 +83,4 @@ async function publishAd(req, res) {
     }
   }
 
-export default { getUserAds, publishAd, getAdForm, deleteAd, updateAd };
+export default { getUserAds, publishAd, getAdForm, deleteAd, updateAd, getEditForm };

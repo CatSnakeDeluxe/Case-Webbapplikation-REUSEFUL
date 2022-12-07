@@ -18,37 +18,11 @@
         <h2 class="pageHeading">User Page</h2>
     </div>
 
-    <form class="flex" id="editForm" hidden>
-        <h3>Edit Ad</h3>
-        <input type="text" name="title" id="title" placeholder="Title">
-        <select class="selectCategory" name="category" id="category">
-            <option value="sofas">Sofas</option>
-            <option value="tables">Tables</option>
-            <option value="chairs">Chairs</option>
-            <option value="lamps">Lamps</option>
-        </select>
-        <input type="number" name="price" id="price" placeholder="Price">
-        <textarea name="description" id="description" cols="20" rows="5" placeholder="Description"></textarea>
-        
-        <div class="flex radioContainer">
-            <div class="radioOption">
-                <label for="public">Post Ad</label>
-                <input type="radio" name="visibility" id="visibility" value="public">
-            </div>
-            <div class="radioOption">
-                <label for="private">Save as draft</label>
-                <input type="radio" name="visibility" id="visibility" value="private">
-            </div>
-        </div>
-
-        <input type="submit" value="Submit">
-    </form>
-
     <% locals.UserAds.forEach(Ad => { %>
         <div class="ad">
             <div class="optionsDiv flex">
-                <button class="btnAdUserPage" onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil"></i></button>
-                <button class="btnAdUserPage" onclick="handleDelete('<%= Ad._id %>')"><i class="fa-regular fa-trash-can"></i></button>
+                <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')" href="/userPage/editForm"><i class="fa-solid fa-pencil"></i></a>
+                <a onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can"></i></a>
             </div>
             <div class="flex titleCategory">
                 <div>
@@ -62,61 +36,6 @@
         </div>
     <% }) %>
 
-    <script>
-        // setTimeout(() => {
-        // const msg = document.getElementById("serverMessage");
-        // msg.style.display = "none";
-        // }, 5000);
-
-        function handleDelete(id) {
-        console.log("Delete was triggered with id", id);
-        // fetch(`/userPage/${id}`, { method: "DELETE" })
-        //   .then((resp) => {
-        //     console.log(resp);
-        //     if (resp.redirected) {
-        //       window.location.href = resp.url;
-        //     }
-        //   })
-        //   .catch((err) => console.log(err));
-      }
-
-        function handleEdit(id, oldTitle, oldCategory, oldPrice, Olddescription, Oldvisibility) {
-        const editForm = document.getElementById("editForm");
-        editForm.style = "display: flex";
-
-        // console.log("handleEdit - Form Elements", editForm.elements);
-
-        editForm.elements.title.value = oldTitle;
-        editForm.elements.category.value = oldCategory;
-        editForm.elements.price.value = oldPrice;
-        editForm.elements.description.value = Olddescription;
-        editForm.elements.visibility.value = Oldvisibility;
-
-        editForm.onsubmit = (event) => {
-            event.preventDefault();
-
-            const newTitle = editForm.elements.title.value;
-            const newCategory = editForm.elements.category.value;
-            const newPrice = editForm.elements.price.value;
-            const newDescription = editForm.elements.description.value;
-            const newVisibility = editForm.elements.visibility.value;
-
-            fetch(`/userPage${id}`, {
-                method: "PUT",
-                headers: {
-              "Content-Type": "application/json",
-            },
-                body: JSON.stringify({title: newTitle, category: newCategory, price: newPrice, description: newDescription, visibility: newVisibility})
-            })
-            .then((response) => {
-              console.log(response);
-              if (response.redirected) {
-                window.location.href = response.url;
-              }
-            })
-            .catch((err) => console.log(err));
-            };
-        }
-    </script>
+    <script src="../functions/functions.js"></script>
 </body>
 </html>
