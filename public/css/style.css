@@ -177,19 +177,19 @@ a {
 
 /* FORM */
 
-/* #editForm {
-    display: none;
-} */
+
 
 form {
     flex-direction: column;
 }
 
-/* SERVER MESSAGE */
-/* #serverMessage {
-    background: var(--white);
-    color: var(--darkGreen);
-    margin: auto;
-    text-align: center;
-} */
+/* FILTER */
+
+.show {
+    display: block;
+}
+
+.filter {
+    display: none;
+}
 

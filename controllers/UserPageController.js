@@ -36,30 +36,30 @@ async function publishAd(req, res) {
     res.render("adForm", locals);
   }
 
-  async function getEditForm(req, res) {
-    const userId = req.session.userId;
-    const locals = { userId };
-    res.render("editForm", locals);
-  }
+//   async function getEditForm(req, res) {
+//     const userId = req.session.userId;
+//     const locals = { userId };
+//     res.render("editForm", locals);
+//   }
   
   async function deleteAd(req, res) {
+    let query = null;
     try {
-      // get id from params /userPage/<this-part>
       const ID = req.params.id;
       console.log("Trying to delete: ", ID);
-  
-      // get result from deletion
+
       const result = await AdModel.deleteOne({ _id: ID });
-  
-      // make sure there was a deletion otherwise raise exception
+
       if (result.deletedCount == 0) {
         throw { message: "No Ad deletion was made" };
       }
     } catch (err) {
-      console.error(err.message);
+      query = new URLSearchParams({ type: "fail", message: err.message });
+      return res.redirect(`/userPage?${query}`);
     } finally {
       // ADD QUERYS
-      res.redirect("/userPage");
+      query = new URLSearchParams({ type: "success", message: "Succesfully Deleted Ad" });
+      res.redirect(`/userPage?${query}`);
     }
   }
   
@@ -83,4 +83,4 @@ async function publishAd(req, res) {
     }
   }
 
-export default { getUserAds, publishAd, getAdForm, deleteAd, updateAd, getEditForm };
+export default { getUserAds, publishAd, getAdForm, deleteAd, updateAd };

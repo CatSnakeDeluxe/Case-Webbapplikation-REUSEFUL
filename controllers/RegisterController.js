@@ -15,7 +15,8 @@ async function registerUser(req, res) {
 
     } catch (error) {
         console.error(error.message);
-        query = new URLSearchParams({type: "fail", message: "Couldn't Create User"});
+        query = new URLSearchParams({type: "fail", message: "Username Taken"});
+        return res.redirect(`/register?${query}`);
 
     } finally {
         query = new URLSearchParams({type: "success", message: "Successfully Created User"});

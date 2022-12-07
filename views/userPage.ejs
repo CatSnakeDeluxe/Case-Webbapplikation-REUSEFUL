@@ -13,6 +13,35 @@
 <body>
     <%- include("./partials/header.ejs") %>
 
+    <form class="flex" id="editForm" hidden>
+        <div class="flex editFormHeading">
+            <h3>Edit Form</h3>
+            <i onclick="handleCloseForm()" class="fa-solid fa-circle-xmark"></i>
+        </div>
+        <input type="text" name="title" id="title" placeholder="Title">
+        <select class="selectCategory" name="category" id="category">
+            <option value="sofas">Sofas</option>
+            <option value="tables">Tables</option>
+            <option value="chairs">Chairs</option>
+            <option value="lamps">Lamps</option>
+        </select>
+        <input type="number" name="price" id="price" placeholder="Price">
+        <textarea name="description" id="description" cols="20" rows="5" placeholder="Description"></textarea>
+        
+        <div class="flex radioContainer">
+            <div class="radioOption">
+                <label for="public">Post Ad</label>
+                <input type="radio" name="visibility" id="visibility" value="public">
+            </div>
+            <div class="radioOption">
+                <label for="private">Save as draft</label>
+                <input type="radio" name="visibility" id="visibility" value="private">
+            </div>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+
     <div class="flex pageHeading">
         <a href="/ads"><i class="fa-solid fa-arrow-left"></i></a>
         <h2 class="pageHeading">User Page</h2>
@@ -21,7 +50,8 @@
     <% locals.UserAds.forEach(Ad => { %>
         <div class="ad">
             <div class="optionsDiv flex">
-                <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')" href="/userPage/editForm"><i class="fa-solid fa-pencil"></i></a>
+                <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil"></i></a>
+                <!-- <a  href="/userPage/editForm"><button onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')">edit</button></a> -->
                 <a onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can"></i></a>
             </div>
             <div class="flex titleCategory">

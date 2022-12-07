@@ -10,19 +10,19 @@ function ensureAuth(req,res,next) {
         next();
     } else {
         console.log("User is NOT authenticated. Redirect to login");
-        const q = (new URLSearchParams({type: "fail", message: "You must login to access content"})).toString();
-        res.redirect(`/login?${q}`)
+        const query = (new URLSearchParams({type: "fail", message: "You must login to access content"})).toString();
+        res.redirect(`/login?${query}`);
     }
 }
 
 UserPageRouter.use(ensureAuth);
 
 UserPageRouter.get("/", UserPageController.getUserAds);
-UserPageRouter.get("/editForm", UserPageController.getEditForm);
+// UserPageRouter.get("/editForm", UserPageController.getEditForm);
 UserPageRouter.get("/adForm", UserPageController.getAdForm);
 
 UserPageRouter.post("/", UserPageController.publishAd);
 UserPageRouter.delete("/:id", UserPageController.deleteAd);
-UserPageRouter.put("/:id", UserPageController.updateAd);
+// UserPageRouter.put("/editForm/:id", UserPageController.updateAd);
 
 export default UserPageRouter;

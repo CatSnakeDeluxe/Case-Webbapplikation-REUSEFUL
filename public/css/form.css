@@ -96,3 +96,28 @@ h6 {
 .register {
     text-decoration: underline;
 }
+
+#editForm {
+    display: none;
+    margin-bottom: 2rem;
+}
+
+.editFormHeading {
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.editFormHeading h3 {
+    font-weight: 400;
+    font-size: 1.4rem;
+}
+
+.editFormHeading .fa-circle-xmark {
+    color: var(--darkGreen);
+    margin-left: 1rem;
+    margin-top: 5px;
+    font-size: 1.4rem;
+}
