@@ -193,3 +193,9 @@ form {
     display: none;
 }
 
+/* IMAGE */
+
+.Image {
+    justify-content: center;
+    /* background: var(--mediumGreen); */
+}

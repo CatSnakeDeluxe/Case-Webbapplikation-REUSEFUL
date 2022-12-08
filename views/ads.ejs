@@ -17,10 +17,7 @@
 
         <% Ads.forEach(Ad=> { %>
             <div class="ad">
-                <!-- <div class="categoryImage">
-                    <img class="Image" [src]="<%= Ad.category %>" alt="">
-                </div> -->
-                <div class="Image">
+                <div class="Image flex">
                     <%= Ad.category %>
                 </div>
                 <div class="flex titleCategory accordion">
@@ -37,7 +34,9 @@
                     </h4>
                 </div>
                 <div class="panel">
-                    <p><%= Ad.description %></p>
+                    <p>
+                        <%= Ad.description %>
+                    </p>
                     <div class="flex adBottom">
                         <p>Posted By: <%= Ad.postedBy.username %>
                         </p>
@@ -65,79 +64,79 @@
     }
 
     function addImg() {
-    const img = document.getElementsByClassName("Image");
+        const img = document.getElementsByClassName("Image");
 
-    Array.from(img).forEach(element => {
-        console.log("TEST", element.innerText);
+        Array.from(img).forEach(element => {
+            // console.log("TEST", element.innerText);
 
-        switch (element.innerText) {
-        case "sofas":
-            return element.innerText = "../public/img/sofa.jpg";
-        break;
-        case "tables":
-            return element.innerText = "../public/img/table.jpg";
-          break;
-        case "chairs":
-            return element.innerText = "../public/img/chair.jpg";
-          break;
-        case "lamps":
-            return element.innerText = "../public/img/lamp.jpg";
-          break;
-      }
-    });
-}
+            switch (element.innerText) {
+                case "sofas":
+                    element.innerHTML = "<img src='../public/img/sofa.png'>";
+                    break;
+                case "tables":
+                    element.innerHTML = "<img src='../public/img/table.png'>";
+                    break;
+                case "chairs":
+                    element.innerHTML = "<img src='../public/img/chair.png'>";
+                    break;
+                case "lamps":
+                    element.innerHTML = "<img src='../public/img/lamp.png'>";
+                    break;
+            }
+        });
+    }
 
-addImg();
+    addImg();
 
-// filterSelection("all");
+    // filterSelection("all");
 
-// function filterSelection(c) {
-//   var x, i;
-//   x = document.getElementsByClassName("filter");
-//   if (c == "all") c = "";
-//   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-//   for (i = 0; i < x.length; i++) {
-//     removeClass(x[i], "show");
-//     if (x[i].className.indexOf(c) > -1) addClass(x[i], "show");
-//   }
-// }
+    // function filterSelection(c) {
+    //   var x, i;
+    //   x = document.getElementsByClassName("filter");
+    //   if (c == "all") c = "";
+    //   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+    //   for (i = 0; i < x.length; i++) {
+    //     removeClass(x[i], "show");
+    //     if (x[i].className.indexOf(c) > -1) addClass(x[i], "show");
+    //   }
+    // }
 
-// // Show filtered elements
-// function addClass(element, name) {
-//   var i, arr1, arr2;
-//   arr1 = element.className.split(" ");
-//   arr2 = name.split(" ");
-//   for (i = 0; i < arr2.length; i++) {
-//     if (arr1.indexOf(arr2[i]) == -1) {
-//       element.className += " " + arr2[i];
-//     }
-//   }
-// }
+    // // Show filtered elements
+    // function addClass(element, name) {
+    //   var i, arr1, arr2;
+    //   arr1 = element.className.split(" ");
+    //   arr2 = name.split(" ");
+    //   for (i = 0; i < arr2.length; i++) {
+    //     if (arr1.indexOf(arr2[i]) == -1) {
+    //       element.className += " " + arr2[i];
+    //     }
+    //   }
+    // }
 
-// // Hide elements that are not selected
-// function removeClass(element, name) {
-//   var i, arr1, arr2;
-//   arr1 = element.className.split(" ");
-//   arr2 = name.split(" ");
-//   for (i = 0; i < arr2.length; i++) {
-//     while (arr1.indexOf(arr2[i]) > -1) {
-//       arr1.splice(arr1.indexOf(arr2[i]), 1);
-//     }
-//   }
-//   element.className = arr1.join(" ");
-// }
+    // // Hide elements that are not selected
+    // function removeClass(element, name) {
+    //   var i, arr1, arr2;
+    //   arr1 = element.className.split(" ");
+    //   arr2 = name.split(" ");
+    //   for (i = 0; i < arr2.length; i++) {
+    //     while (arr1.indexOf(arr2[i]) > -1) {
+    //       arr1.splice(arr1.indexOf(arr2[i]), 1);
+    //     }
+    //   }
+    //   element.className = arr1.join(" ");
+    // }
 
-// Add active class to the current control button (highlight it)
-var btnContainer = document.getElementById("filterOptions");
-var btns = btnContainer.getElementsByClassName("filterBtn");
+    // Add active class to the current control button (highlight it)
+    var btnContainer = document.getElementById("filterOptions");
+    var btns = btnContainer.getElementsByClassName("filterBtn");
 
-for (let i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
 
 </script>
 
