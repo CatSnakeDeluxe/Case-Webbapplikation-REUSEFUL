@@ -30,8 +30,7 @@ browser url: localhost:<chosen portnumber>/ads
 
 TODO
 - filter options
-- render
-
++ render
 + edit function
 + delete function
 + add pictures based on category

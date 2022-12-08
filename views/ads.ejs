@@ -7,45 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/style.css">
     <script src="https://kit.fontawesome.com/bf456a88d2.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>ReUseful Ads</title>
 </head>
 
 <body>
     <%- include("./partials/header.ejs") %>
 
         <h2 class="flex pageHeading">Recently Listed</h2>
-
-        <% Ads.forEach(Ad=> { %>
-            <div class="ad">
-                <div class="Image flex">
-                    <%= Ad.category %>
-                </div>
-                <div class="flex titleCategory accordion">
-                    <div>
-                        <h3 class="title">
-                            <%= Ad.title %>
-                        </h3>
-                        <p class="category">
-                            <%= Ad.category %>
-                        </p>
-                    </div>
-                    <h4 class="price">
-                        <span class="dollar">$</span>
-                        <%= Ad.price %>
-                    </h4>
-                </div>
-                <div class="panel">
-                    <p>
-                        <%= Ad.description %>
+<div class="adsContainer flex">
+    <% Ads.forEach(Ad=> { %>
+        <div class="ad">
+            <div class="Image flex">
+                <%= Ad.category %>
+            </div>
+            <div class="flex titleCategory accordion">
+                <div>
+                    <h3 class="title">
+                        <%= Ad.title %>
+                    </h3>
+                    <p class="category">
+                        <%= Ad.category %>
                     </p>
-                    <div class="flex adBottom">
-                        <p>Posted By: <%= Ad.postedBy.username %>
-                        </p>
-                        <button class="btn contactSeller">Contact Seller</button>
-                    </div>
+                </div>
+                <h4 class="price">
+                    <span class="dollar">$</span>
+                    <%= Ad.price %>
+                </h4>
+            </div>
+            <div class="panel">
+                <p>
+                    <%= Ad.description %>
+                </p>
+                <div class="flex adBottom">
+                    <p>Posted By: <%= Ad.postedBy.username %>
+                    </p>
+                    <button class="btn contactSeller">Contact Seller</button>
                 </div>
             </div>
-            <% }) %>
+        </div>
+        <% }) %>
+</div>
+
 </body>
 <script>
     let acc = document.getElementsByClassName("accordion");

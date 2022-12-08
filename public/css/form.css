@@ -9,6 +9,10 @@ form {
     margin: auto;
 }
 
+.loginForm {
+    align-items: center;
+}
+
 .formContainer {
     flex-direction: column;
     /* TODO: center container */
@@ -21,6 +25,7 @@ input[type=text], input[type=password], input[type=number] {
     padding: 0.8rem;
     margin: 0.3rem;
     border-radius: 5px;
+    max-width: 280px;
 }
 
 textarea {
@@ -30,6 +35,7 @@ textarea {
     padding: 0.8rem;
     margin: 0.3rem;
     border-radius: 5px;
+    max-width: 280px;
 }
 
 .selectCategory {
@@ -39,6 +45,7 @@ textarea {
     padding: 0.8rem 0.4rem ;
     margin: 0.3rem;
     border-radius: 5px;
+    max-width: 280px;
 }
 
 .radioContainer {
@@ -74,18 +81,20 @@ input[type=submit] {
     color: var(--brown);
     margin: auto;
     margin-top: 1.4rem;
+    max-width: 115px;
 }
 
 .notAUserYet {
     background: var(--melon);
     width: 80%;
-    position: fixed;
     bottom: 2rem;
-    left: 10%;
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;
     padding: 0.3rem 0.8rem;
+    max-width: 330px;
+    margin: auto;
+    margin-top: 4rem;
 }
 
 h6 {

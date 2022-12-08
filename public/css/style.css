@@ -121,6 +121,10 @@ a {
 
 /* ADS */
 
+.adsContainer {
+    flex-direction: column;
+}
+
 .ad {
     background: var(--white);
     padding: 0.5rem 1rem;
@@ -232,3 +236,23 @@ form {
 #serverMessage {
     margin-top: 1rem;
 }
+
+/* @MEDIA */
+
+@media (min-width: 400px) {
+    .ad {
+        width: 400px;
+        margin: auto;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .adsContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .ad {
+        min-width: 400px;
+        
+    }
+  }
