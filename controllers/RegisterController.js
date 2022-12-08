@@ -1,7 +1,7 @@
 import UserModel from "../models/UserModel.js";
 
 async function getRegisterForm(req, res) {
-    res.render("registerForm");
+    res.render("registerForm", { serverMessage: req.query });
 }
 
 async function registerUser(req, res) {

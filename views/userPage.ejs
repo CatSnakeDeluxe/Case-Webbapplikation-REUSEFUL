@@ -13,6 +13,10 @@
 <body>
     <%- include("./partials/header.ejs") %>
 
+    <% if (serverMessage) { %>
+        <div class="<%= serverMessage.type %>"><%= serverMessage.message %></div>
+    <% } %> 
+    
     <form class="flex" id="editForm" hidden>
         <div class="flex editFormHeading">
             <h3>Edit Form</h3>

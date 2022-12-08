@@ -5,7 +5,7 @@ async function getUserAds(req, res) {
     const userId = req.session.userId;
     const UserAds = await AdModel.find({ postedBy: ObjectId(userId) });
     console.log("USER ID", userId);
-    const locals = { UserAds, userId };
+    const locals = { UserAds, userId, serverMessage: req.query };
 
     res.render("userPage", locals);
 }
@@ -36,12 +36,6 @@ async function publishAd(req, res) {
     res.render("adForm", locals);
   }
 
-//   async function getEditForm(req, res) {
-//     const userId = req.session.userId;
-//     const locals = { userId };
-//     res.render("editForm", locals);
-//   }
-  
   async function deleteAd(req, res) {
     let query = null;
     try {

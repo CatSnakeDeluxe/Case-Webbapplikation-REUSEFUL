@@ -1,7 +1,7 @@
 import UserModel from "../models/UserModel.js";
 
 async function getLogin(req, res) {
-    res.render("login");
+    res.render("login", { serverMessage: req.query });
 }
 
 async function login(req, res) {
@@ -30,7 +30,6 @@ async function login(req, res) {
         query = new URLSearchParams({type: "fail", message: "Failed To Log In"});
 
         return res.redirect(`/login?${query}`);
-        
     } finally {
         query = new URLSearchParams({type: "success", message: "Successfully Logged In"});
         res.redirect(`/userPage?${query}`);
