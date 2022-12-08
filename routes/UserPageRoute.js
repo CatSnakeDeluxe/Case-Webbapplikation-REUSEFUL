@@ -23,6 +23,6 @@ UserPageRouter.get("/adForm", UserPageController.getAdForm);
 
 UserPageRouter.post("/", UserPageController.publishAd);
 UserPageRouter.delete("/:id", UserPageController.deleteAd);
-// UserPageRouter.put("/editForm/:id", UserPageController.updateAd);
+UserPageRouter.put("/:id", UserPageController.updateAd);
 
 export default UserPageRouter;

@@ -20,7 +20,7 @@ function handleEdit(id, oldTitle, oldCategory, oldPrice, oldDescription, oldVisi
         const newDescription = editForm.elements.description.value;
         const newVisibility = editForm.elements.visibility.value;
 
-        fetch(`/userPage${id}`, {
+        fetch(`/userPage/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
