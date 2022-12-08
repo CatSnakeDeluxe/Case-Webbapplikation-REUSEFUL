@@ -14,9 +14,9 @@
     <%- include("./partials/header.ejs") %>
 
     <% if (serverMessage) { %>
-        <div class="<%= serverMessage.type %>"><%= serverMessage.message %></div>
+        <div id="serverMessage" class="<%= serverMessage.type %>"><%= serverMessage.message %></div>
     <% } %> 
-    
+
     <form class="flex" id="editForm" hidden>
         <div class="flex editFormHeading">
             <h3>Edit Form</h3>
@@ -54,8 +54,14 @@
     <% locals.UserAds.forEach(Ad => { %>
         <div class="ad">
             <div class="optionsDiv flex">
-                <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil"></i></a>
-                <a onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can"></i></a>
+                <div>
+                    <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil"></i></a>
+                    <a onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can"></i></a>
+                </div>
+                <p class="visibilityText"><%= Ad.visibility %></p>
+            </div>
+            <div class="Image flex">
+                <%= Ad.category %>
             </div>
             <div class="flex titleCategory">
                 <div>
@@ -64,11 +70,53 @@
                 </div>
                 <h4 class="price"><%= Ad.price %></h4>
             </div>
-            <p><%= Ad.description %></p>
-            <p><%= Ad.visibility %></p>
+            <div>
+                <p><%= Ad.description %></p>
+            </div>
         </div>
     <% }) %>
 
     <script src="../functions/functions.js"></script>
+    <script>
+        function addVisibilityText() {
+        const visibilityText = document.getElementsByClassName("visibilityText");
+
+        Array.from(visibilityText).forEach(visibilityText => {
+            switch (visibilityText.innerText) {
+                case "public":
+                    visibilityText.innerText = "Active Ad";
+                    break;
+                case "private":
+                    visibilityText.innerText = "Saved As Draft";
+                    break;
+            }
+        });
+    }
+    
+    addVisibilityText();
+
+    function addImg() {
+        const img = document.getElementsByClassName("Image");
+
+        Array.from(img).forEach(element => {
+            switch (element.innerText) {
+                case "sofas":
+                    element.innerHTML = "<img src='../public/img/sofa.png'>";
+                    break;
+                case "tables":
+                    element.innerHTML = "<img src='../public/img/table.png'>";
+                    break;
+                case "chairs":
+                    element.innerHTML = "<img src='../public/img/chair.png'>";
+                    break;
+                case "lamps":
+                    element.innerHTML = "<img src='../public/img/lamp.png'>";
+                    break;
+            }
+        });
+    }
+
+    addImg();
+    </script>
 </body>
 </html>

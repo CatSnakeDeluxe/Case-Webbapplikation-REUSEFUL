@@ -37,10 +37,10 @@ function handleEdit(id, oldTitle, oldCategory, oldPrice, oldDescription, oldVisi
     };
 }
 
-// setTimeout(() => {
-// const msg = document.getElementById("serverMessage");
-// msg.style.display = "none";
-// }, 5000);
+setTimeout(() => {
+const msg = document.getElementById("serverMessage");
+msg.style.display = "none";
+}, 4000);
 
 function handleDelete(id) {
     console.log("Delete was triggered with id", id);

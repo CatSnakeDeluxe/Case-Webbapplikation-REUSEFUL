@@ -15,9 +15,9 @@
     <%- include("./partials/header.ejs") %>
 
     <% if (serverMessage) { %>
-        <div class="<%= serverMessage.type %>"><%= serverMessage.message %></div>
+        <div id="serverMessage" class="<%= serverMessage.type %>"><%= serverMessage.message %></div>
     <% } %> 
-    
+
     <div class="flex pageHeading">
         <a href="/ads"><i class="fa-solid fa-arrow-left"></i></a>
         <h2 class="pageHeading">Log In</h2>
@@ -32,6 +32,6 @@
          <h6>Not a user yet?</h6>
         <a class="btn register" href="/register">Create Account</a>
      </div>
+     <script src="../functions/functions.js"></script>
 </body>
-
 </html>

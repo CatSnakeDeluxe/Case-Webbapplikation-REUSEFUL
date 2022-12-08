@@ -22,6 +22,7 @@ body {
 }
 
 /* HEADER AND FILTER OPTIONS */
+
 header {
     display: flex;
     flex-direction: column;
@@ -175,9 +176,12 @@ a {
     margin-right: 0.3rem;
 }
 
+.Image {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 /* FORM */
-
-
 
 form {
     flex-direction: column;
@@ -197,5 +201,34 @@ form {
 
 .Image {
     justify-content: center;
-    /* background: var(--mediumGreen); */
+}
+
+/* SERVER MESSAGE */
+
+.success {
+    font-weight: 700;
+    display: flex;
+    /* justify-content: center; */
+    padding: 0.6rem;
+    color: var(--darkGreen);
+    border: 5px solid var(--mediumGreen);
+    border-radius: 5px;
+    width: fit-content;
+    margin: auto;
+}
+
+.fail {
+    font-weight: 700;
+    display: flex;
+    /* justify-content: center; */
+    padding: 0.6rem;
+    color: var(--darkGreen);
+    border: 5px solid rgb(195, 116, 52);
+    border-radius: 5px;
+    width: fit-content;
+    margin: auto;
+}
+
+#serverMessage {
+    margin-top: 1rem;
 }
