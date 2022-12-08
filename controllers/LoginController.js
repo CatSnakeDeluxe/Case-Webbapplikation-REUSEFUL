@@ -27,11 +27,11 @@ async function login(req, res) {
         locals.userId = user._id;
     } catch (err) {
         console.error(err);
-        query = new URLSearchParams({type: "fail", message: "Failed To Log In"});
+        query = new URLSearchParams({ type: "fail", message: "Failed To Log In" });
 
         return res.redirect(`/login?${query}`);
     } finally {
-        query = new URLSearchParams({type: "success", message: "Successfully Logged In"});
+        query = new URLSearchParams({ type: "success", message: "Successfully Logged In" });
         res.redirect(`/userPage?${query}`);
     }
 }
@@ -39,14 +39,14 @@ async function login(req, res) {
 async function logout(req, res) {
     let query = null;
     try {
-      req.session.destroy();
+        req.session.destroy();
     } catch (err) {
-        query = new URLSearchParams({type: "fail", message: "Couldn't Log Out"});
+        query = new URLSearchParams({ type: "fail", message: "Couldn't Log Out" });
         return res.redirect(`/userPage?${query}`);
     } finally {
-        query = new URLSearchParams({type: "success", message: "Successfully Logged Out"});
+        query = new URLSearchParams({ type: "success", message: "Successfully Logged Out" });
         res.redirect(`/login?${query}`);
     }
-  }
+}
 
 export default { getLogin, login, logout }

@@ -29,9 +29,9 @@ Write command in terminal: node server
 browser url: localhost:<chosen portnumber>/ads
 
 TODO
-- edit function
 - filter options
-- add pictures based on category
 - render
 
++ edit function
 + delete function
++ add pictures based on category

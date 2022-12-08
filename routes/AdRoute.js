@@ -3,7 +3,7 @@ import AdController from "../controllers/AdController.js";
 
 const AdRouter = Router();
 
-AdRouter.get("/ads", AdController.getAllAds);
+AdRouter.get("/", AdController.getAllAds);
 
 // MOVE ROUTES TO USERROUTE?
 // AdRouter.get("/adForm", AdController.getAdForm);
