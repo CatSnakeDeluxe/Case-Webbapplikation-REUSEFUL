@@ -25,6 +25,7 @@ async function login(req, res) {
         req.session.checkUserAuth = true;
         req.session.userId = user._id;
         locals.userId = user._id;
+        
     } catch (err) {
         console.error(err);
         query = new URLSearchParams({ type: "fail", message: "Failed To Log In" });

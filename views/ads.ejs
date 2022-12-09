@@ -13,6 +13,7 @@
 <body>
     <%- include("./partials/header.ejs") %>
         <h2 class="flex pageHeading">Recently Listed</h2>
+        
         <div class="adsContainer flex">
             <% Ads.forEach(Ad=> { %>
                 <div class="ad <%= Ad.category %>">
@@ -89,17 +90,20 @@
             filterSelection("all");
             addImg();
 
-            function filterSelection(c) {
-                var x, i;
+            function filterSelection(e) {
+                let x;
                 x = document.querySelectorAll(".ad");
-                if (c == "all") c = "";
+                if (e == "all") e = "";
                 Array.from(x).forEach(item => {
                     removeActiveClass(item, "show");
-                    if (item.className.indexOf(c) > -1) addActiveClass(item, "show");
+                    if (item.className.indexOf(e) > -1) addActiveClass(item, "show");
                 });
             }
+            
             function addActiveClass(ele, name) {
-                var i, arr1, arr2;
+                let i;
+                let arr1;
+                let arr2;
                 arr1 = ele.className.split(" ");
                 arr2 = name.split(" ");
                 for (i = 0; i < arr2.length; i++) {
@@ -108,8 +112,11 @@
                     }
                 }
             }
+
             function removeActiveClass(ele, name) {
-                var i, arr1, arr2;
+                let i;
+                let arr1;
+                let arr2;
                 arr1 = ele.className.split(" ");
                 arr2 = name.split(" ");
                 for (i = 0; i < arr2.length; i++) {
@@ -119,11 +126,12 @@
                 }
                 ele.className = arr1.join(" ");
             }
-            var filterBtns = document.querySelector(".filterBtns");
-            var btns = filterBtns.getElementsByTagName("a");
+
+            let filterBtns = document.querySelector(".filterBtns");
+            let btns = filterBtns.getElementsByTagName("a");
             for (let i = 0; i < btns.length; i++) {
                 btns[i].addEventListener("click", function () {
-                    var current = document.getElementsByClassName("active");
+                    let current = document.getElementsByClassName("active");
                     current[0].className = current[0].className.replace(" active", "");
                     this.className += " active";
                 });
