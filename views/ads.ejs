@@ -12,133 +12,122 @@
 
 <body>
     <%- include("./partials/header.ejs") %>
-
         <h2 class="flex pageHeading">Recently Listed</h2>
-<div class="adsContainer flex">
-    <% Ads.forEach(Ad=> { %>
-        <div class="ad">
-            <div class="Image flex">
-                <%= Ad.category %>
-            </div>
-            <div class="flex titleCategory accordion">
-                <div>
-                    <h3 class="title">
-                        <%= Ad.title %>
-                    </h3>
-                    <p class="category">
+        <div class="adsContainer flex">
+            <% Ads.forEach(Ad=> { %>
+                <div class="ad <%= Ad.category %>">
+                    <div class="Image flex">
                         <%= Ad.category %>
-                    </p>
+                    </div>
+                    <div class="flex titleCategory accordion">
+                        <div>
+                            <h3 class="title">
+                                <%= Ad.title %>
+                            </h3>
+                            <p class="category">
+                                <%= Ad.category %>
+                            </p>
+                        </div>
+                        <h4 class="price">
+                            <span class="dollar">$</span>
+                            <%= Ad.price %>
+                        </h4>
+                    </div>
+                    <div class="panel">
+                        <p>
+                            <%= Ad.description %>
+                        </p>
+                        <div class="flex adBottom">
+                            <p>Posted By: <%= Ad.postedBy.username %>
+                            </p>
+                            <button class="btn contactSeller">Contact Seller</button>
+                        </div>
+                    </div>
                 </div>
-                <h4 class="price">
-                    <span class="dollar">$</span>
-                    <%= Ad.price %>
-                </h4>
-            </div>
-            <div class="panel">
-                <p>
-                    <%= Ad.description %>
-                </p>
-                <div class="flex adBottom">
-                    <p>Posted By: <%= Ad.postedBy.username %>
-                    </p>
-                    <button class="btn contactSeller">Contact Seller</button>
-                </div>
-            </div>
+                <% }) %>
         </div>
-        <% }) %>
-</div>
+        <script>
+            let acc = document.getElementsByClassName("accordion");
+            let i;
 
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+
+                    let panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
+
+            function addImg() {
+                const img = document.getElementsByClassName("Image");
+                img.style = "display: block";
+
+                Array.from(img).forEach(element => {
+                    switch (element.innerText) {
+                        case "sofas":
+                            element.innerHTML = "<img src='../public/img/sofa.png'>";
+                            break;
+                        case "tables":
+                            element.innerHTML = "<img src='../public/img/table.png'>";
+                            break;
+                        case "chairs":
+                            element.innerHTML = "<img src='../public/img/chair.png'>";
+                            break;
+                        case "lamps":
+                            element.innerHTML = "<img src='../public/img/lamp.png'>";
+                            break;
+                    }
+                });
+            }
+
+
+            filterSelection("all");
+            addImg();
+
+            function filterSelection(c) {
+                var x, i;
+                x = document.querySelectorAll(".ad");
+                if (c == "all") c = "";
+                Array.from(x).forEach(item => {
+                    removeActiveClass(item, "show");
+                    if (item.className.indexOf(c) > -1) addActiveClass(item, "show");
+                });
+            }
+            function addActiveClass(ele, name) {
+                var i, arr1, arr2;
+                arr1 = ele.className.split(" ");
+                arr2 = name.split(" ");
+                for (i = 0; i < arr2.length; i++) {
+                    if (arr1.indexOf(arr2[i]) == -1) {
+                        ele.className += " " + arr2[i];
+                    }
+                }
+            }
+            function removeActiveClass(ele, name) {
+                var i, arr1, arr2;
+                arr1 = ele.className.split(" ");
+                arr2 = name.split(" ");
+                for (i = 0; i < arr2.length; i++) {
+                    while (arr1.indexOf(arr2[i]) > -1) {
+                        arr1.splice(arr1.indexOf(arr2[i]), 1);
+                    }
+                }
+                ele.className = arr1.join(" ");
+            }
+            var filterBtns = document.querySelector(".filterBtns");
+            var btns = filterBtns.getElementsByTagName("a");
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function () {
+                    var current = document.getElementsByClassName("active");
+                    current[0].className = current[0].className.replace(" active", "");
+                    this.className += " active";
+                });
+            }
+        </script>
 </body>
-<script>
-    let acc = document.getElementsByClassName("accordion");
-    let i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-
-            let panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
-    }
-
-    function addImg() {
-        const img = document.getElementsByClassName("Image");
-
-        Array.from(img).forEach(element => {
-            switch (element.innerText) {
-                case "sofas":
-                    element.innerHTML = "<img src='../public/img/sofa.png'>";
-                    break;
-                case "tables":
-                    element.innerHTML = "<img src='../public/img/table.png'>";
-                    break;
-                case "chairs":
-                    element.innerHTML = "<img src='../public/img/chair.png'>";
-                    break;
-                case "lamps":
-                    element.innerHTML = "<img src='../public/img/lamp.png'>";
-                    break;
-            }
-        });
-    }
-
-    addImg();
-
-    // filterSelection("all");
-
-    // function filterSelection(c) {
-    //   var x, i;
-    //   x = document.getElementsByClassName("filter");
-    //   if (c == "all") c = "";
-    //   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-    //   for (i = 0; i < x.length; i++) {
-    //     removeClass(x[i], "show");
-    //     if (x[i].className.indexOf(c) > -1) addClass(x[i], "show");
-    //   }
-    // }
-
-    // // Show filtered elements
-    // function addClass(element, name) {
-    //   var i, arr1, arr2;
-    //   arr1 = element.className.split(" ");
-    //   arr2 = name.split(" ");
-    //   for (i = 0; i < arr2.length; i++) {
-    //     if (arr1.indexOf(arr2[i]) == -1) {
-    //       element.className += " " + arr2[i];
-    //     }
-    //   }
-    // }
-
-    // // Hide elements that are not selected
-    // function removeClass(element, name) {
-    //   var i, arr1, arr2;
-    //   arr1 = element.className.split(" ");
-    //   arr2 = name.split(" ");
-    //   for (i = 0; i < arr2.length; i++) {
-    //     while (arr1.indexOf(arr2[i]) > -1) {
-    //       arr1.splice(arr1.indexOf(arr2[i]), 1);
-    //     }
-    //   }
-    //   element.className = arr1.join(" ");
-    // }
-
-    // Add active class to the current control button (highlight it)
-    var btnContainer = document.getElementById("filterOptions");
-    var btns = btnContainer.getElementsByClassName("filterBtn");
-
-    for (let i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function () {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-        });
-    }
-
-</script>
-
 </html>

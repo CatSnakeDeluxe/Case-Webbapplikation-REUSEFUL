@@ -51,32 +51,67 @@
         <h2 class="pageHeading">User Page</h2>
     </div>
 
+    <h3 class="adVisibilityHeading">Your Published Ads</h3>
     <% locals.UserAds.forEach(Ad => { %>
-        <div class="ad">
-            <div class="optionsDiv flex">
-                <p class="visibilityText"><%= Ad.visibility %></p>
+        <% if (Ad.visibility === "public") { %>
+            <div class="ad">
+                <div class="optionsDiv flex">
+                    <p class="visibilityText"><%= Ad.visibility %></p>
+                    <div>
+                        <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil"></i></a>
+                        <a onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can"></i></a>
+                    </div>
+                </div>
+                <div class="Image flex">
+                    <%= Ad.category %>
+                </div>
+                <div class="flex titleCategory">
+                    <div>
+                        <h3 class="title"><%= Ad.title %></h3>
+                        <p class="category"><%= Ad.category %></p>
+                    </div>
+                    <h4 class="price">
+                        <span class="dollar">$</span>
+                        <%= Ad.price %>
+                    </h4>
+                </div>
                 <div>
-                    <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil"></i></a>
-                    <a onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can"></i></a>
+                    <p><%= Ad.description %></p>
                 </div>
             </div>
-            <div class="Image flex">
-                <%= Ad.category %>
-            </div>
-            <div class="flex titleCategory">
-                <div>
-                    <h3 class="title"><%= Ad.title %></h3>
-                    <p class="category"><%= Ad.category %></p>
+        <% } %>
+    <% }) %>
+
+    
+    <h3 class="adVisibilityHeading">Your Drafts</h3>
+    <% locals.UserAds.forEach(Ad => { %>
+        <% if (Ad.visibility === "private") { %>
+            <div class="ad">
+                <div class="optionsDiv flex">
+                    <p class="visibilityText"><%= Ad.visibility %></p>
+                    <div>
+                        <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil"></i></a>
+                        <a onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can"></i></a>
+                    </div>
                 </div>
-                <h4 class="price">
-                    <span class="dollar">$</span>
-                    <%= Ad.price %>
-                </h4>
+                <div class="Image flex">
+                    <%= Ad.category %>
+                </div>
+                <div class="flex titleCategory">
+                    <div>
+                        <h3 class="title"><%= Ad.title %></h3>
+                        <p class="category"><%= Ad.category %></p>
+                    </div>
+                    <h4 class="price">
+                        <span class="dollar">$</span>
+                        <%= Ad.price %>
+                    </h4>
+                </div>
+                <div>
+                    <p><%= Ad.description %></p>
+                </div>
             </div>
-            <div>
-                <p><%= Ad.description %></p>
-            </div>
-        </div>
+        <% } %>
     <% }) %>
 
     <script src="../functions/functions.js"></script>

@@ -12,14 +12,6 @@ h3 {
     margin: auto;
 }
 
-/* .visibilityText {
-    margin: auto;
-    width: fit-content;
-    background: var(--melon);
-    padding: 0.4rem;
-    border-radius: 5px;
-} */
-
 .fa-pencil, .fa-trash-can {
     color: var(--brown);
     font-size: 1rem;
@@ -32,4 +24,14 @@ h3 {
 .btnAdUserPage {
     border: none;
     background: var(--melon);
+}
+
+.adVisibilityHeading {
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.ad {
+    display: block;
 }
