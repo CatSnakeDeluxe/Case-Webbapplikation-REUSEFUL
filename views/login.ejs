@@ -14,7 +14,7 @@
 <body>
     <%- include("./partials/header.ejs") %>
 
-    <% if (serverMessage) { %>
+    <% if (serverMessage.message) { %>
         <div id="serverMessage" class="<%= serverMessage.type %>"><%= serverMessage.message %></div>
     <% } %> 
 

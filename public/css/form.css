@@ -15,7 +15,6 @@ form {
 
 .formContainer {
     flex-direction: column;
-    /* TODO: center container */
 }
 
 input[type=text], input[type=password], input[type=number] {
@@ -71,7 +70,7 @@ input[type=text]:first-child {
 
 input[type=submit] {
     border: none;
-    width: 40%;
+    width: fit-content;
     text-decoration: none;
     padding: 0.8rem;
     border-radius: 5px;
@@ -81,20 +80,19 @@ input[type=submit] {
     color: var(--brown);
     margin: auto;
     margin-top: 1.4rem;
-    max-width: 115px;
 }
 
 .notAUserYet {
     background: var(--melon);
-    width: 80%;
+    width: 85%;
     bottom: 2rem;
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;
     padding: 0.3rem 0.8rem;
-    max-width: 330px;
     margin: auto;
     margin-top: 4rem;
+    max-width: 320px;
 }
 
 h6 {

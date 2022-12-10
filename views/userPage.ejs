@@ -13,7 +13,7 @@
 <body>
     <%- include("./partials/header.ejs") %>
 
-    <% if (serverMessage) { %>
+    <% if (serverMessage.message) { %>
         <div id="serverMessage" class="<%= serverMessage.type %>"><%= serverMessage.message %></div>
     <% } %> 
 
@@ -87,11 +87,11 @@
     <% locals.UserAds.forEach(Ad => { %>
         <% if (Ad.visibility === "private") { %>
             <div class="ad">
-                <div class="optionsDiv flex">
-                    <p class="visibilityText"><%= Ad.visibility %></p>
+                <div class="draft flex">
+                    <p class="draftContent visibilityText"><%= Ad.visibility %></p>
                     <div>
-                        <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil"></i></a>
-                        <a onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can"></i></a>
+                        <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil draftContent"></i></a>
+                        <a onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can draftContent"></i></a>
                     </div>
                 </div>
                 <div class="Image flex">

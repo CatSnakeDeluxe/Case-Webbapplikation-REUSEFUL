@@ -186,12 +186,6 @@ a {
     margin-bottom: 1rem;
 }
 
-/* FORM */
-
-form {
-    flex-direction: column;
-}
-
 /* FILTER */
 
 .show {
