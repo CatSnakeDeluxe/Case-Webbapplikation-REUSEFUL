@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,28 +11,34 @@
     <script src="https://kit.fontawesome.com/bf456a88d2.js" crossorigin="anonymous"></script>
     <title>ReUseful Userpage</title>
 </head>
+
 <body>
     <%- include("./partials/header.ejs") %>
 
     <% if (serverMessage.message) { %>
-        <div id="serverMessage" class="<%= serverMessage.type %>"><%= serverMessage.message %></div>
-    <% } %> 
+    <div id="serverMessage" class="<%= serverMessage.type %>">
+        <%= serverMessage.message %>
+    </div>
+    <% } %>
 
     <form class="flex" id="editForm" hidden>
         <div class="flex editFormHeading">
             <h3>Edit Form</h3>
             <i onclick="handleCloseForm()" class="fa-solid fa-circle-xmark"></i>
         </div>
+
         <input type="text" name="title" id="title" placeholder="Title">
+
         <select class="selectCategory" name="category" id="category">
             <option value="sofas">Sofas</option>
             <option value="tables">Tables</option>
             <option value="chairs">Chairs</option>
             <option value="lamps">Lamps</option>
         </select>
+
         <input type="number" name="price" id="price" placeholder="Price">
         <textarea name="description" id="description" cols="20" rows="5" placeholder="Description"></textarea>
-        
+
         <div class="flex radioContainer">
             <div class="radioOption">
                 <label for="public">Post Ad</label>
@@ -52,109 +59,97 @@
     </div>
 
     <h3 class="adVisibilityHeading">Your Published Ads</h3>
-    <% locals.UserAds.forEach(Ad => { %>
-        <% if (Ad.visibility === "public") { %>
-            <div class="ad">
-                <div class="optionsDiv flex">
-                    <p class="visibilityText"><%= Ad.visibility %></p>
-                    <div>
-                        <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil"></i></a>
-                        <a onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can"></i></a>
-                    </div>
-                </div>
-                <div class="Image flex">
-                    <%= Ad.category %>
-                </div>
-                <div class="flex titleCategory">
-                    <div>
-                        <h3 class="title"><%= Ad.title %></h3>
-                        <p class="category"><%= Ad.category %></p>
-                    </div>
-                    <h4 class="price">
-                        <span class="dollar">$</span>
-                        <%= Ad.price %>
-                    </h4>
-                </div>
-                <div>
-                    <p><%= Ad.description %></p>
-                </div>
-            </div>
-        <% } %>
-    <% }) %>
 
-    
-    <h3 class="adVisibilityHeading">Your Drafts</h3>
-    <% locals.UserAds.forEach(Ad => { %>
-        <% if (Ad.visibility === "private") { %>
-            <div class="ad">
-                <div class="draft flex">
-                    <p class="draftContent visibilityText"><%= Ad.visibility %></p>
-                    <div>
-                        <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil draftContent"></i></a>
-                        <a onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can draftContent"></i></a>
-                    </div>
-                </div>
-                <div class="Image flex">
-                    <%= Ad.category %>
-                </div>
-                <div class="flex titleCategory">
-                    <div>
-                        <h3 class="title"><%= Ad.title %></h3>
-                        <p class="category"><%= Ad.category %></p>
-                    </div>
-                    <h4 class="price">
-                        <span class="dollar">$</span>
-                        <%= Ad.price %>
-                    </h4>
-                </div>
+    <div class="flex adsContainer">
+        <% locals.UserAds.forEach(Ad=> { %>
+
+        <% if (Ad.visibility==="public" ) { %>
+        <div class="ad">
+            <div class="optionsDiv flex">
+                <p class="visibilityText">
+                    <%= Ad.visibility %>
+                </p>
                 <div>
-                    <p><%= Ad.description %></p>
+                    <a
+                        onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil"></i></a>
+                    <a  onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can"></i></a>
                 </div>
             </div>
+            <div class="Image flex">
+                <%= Ad.category %>
+            </div>
+            <div class="flex titleCategory">
+                <div>
+                    <h3 class="title">
+                        <%= Ad.title %>
+                    </h3>
+                    <p class="category">
+                        <%= Ad.category %>
+                    </p>
+                </div>
+                <h4 class="price">
+                    <span class="dollar">$</span>
+                    <%= Ad.price %>
+                </h4>
+            </div>
+            <div>
+                <p>
+                    <%= Ad.description %>
+                </p>
+            </div>
+        </div>
         <% } %>
-    <% }) %>
+        <% }) %>
+    </div>
+
+    <h3 class="adVisibilityHeading">Your Drafts</h3>
+
+    <div class="flex adsContainer">
+        <% locals.UserAds.forEach(Ad=> { %>
+        <% if (Ad.visibility==="private" ) { %>
+        <div class="ad">
+            <div class="draft flex">
+                <p class="draftContent visibilityText">
+                    <%= Ad.visibility %>
+                </p>
+                <div>
+                    <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil draftContent"></i></a>
+                    <a onclick="handleDelete('<%= Ad._id %>')" href="#"><i class="fa-regular fa-trash-can draftContent"></i></a>
+                </div>
+            </div>
+            <div class="Image flex">
+                <%= Ad.category %>
+            </div>
+            <div class="flex titleCategory">
+                <div>
+                    <h3 class="title">
+                        <%= Ad.title %>
+                    </h3>
+                    <p class="category">
+                        <%= Ad.category %>
+                    </p>
+                </div>
+                <h4 class="price">
+                    <span class="dollar">$</span>
+                    <%= Ad.price %>
+                </h4>
+            </div>
+            <div>
+                <p>
+                    <%= Ad.description %>
+                </p>
+            </div>
+        </div>
+        <% } %>
+        <% }) %>
+    </div>
+
 
     <script src="../functions/functions.js"></script>
     <script>
-        function addVisibilityText() {
-        const visibilityText = document.getElementsByClassName("visibilityText");
-
-        Array.from(visibilityText).forEach(visibilityText => {
-            switch (visibilityText.innerText) {
-                case "public":
-                    visibilityText.innerText = "Active Ad";
-                    break;
-                case "private":
-                    visibilityText.innerText = "Saved As Draft";
-                    break;
-            }
-        });
-    }
-    
-    addVisibilityText();
-
-    function addImg() {
-        const img = document.getElementsByClassName("Image");
-
-        Array.from(img).forEach(element => {
-            switch (element.innerText) {
-                case "sofas":
-                    element.innerHTML = "<img src='../public/img/sofa.png'>";
-                    break;
-                case "tables":
-                    element.innerHTML = "<img src='../public/img/table.png'>";
-                    break;
-                case "chairs":
-                    element.innerHTML = "<img src='../public/img/chair.png'>";
-                    break;
-                case "lamps":
-                    element.innerHTML = "<img src='../public/img/lamp.png'>";
-                    break;
-            }
-        });
-    }
-
-    addImg();
+        addVisibilityText();
+        addImg();
     </script>
 </body>
+
 </html>

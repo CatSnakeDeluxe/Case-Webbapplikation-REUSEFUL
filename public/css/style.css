@@ -231,7 +231,7 @@ a {
 
 /* @MEDIA */
 
-@media (min-width: 400px) {
+@media screen and (max-width: 400px) {
     .ad {
         width: 400px;
         margin: auto;
@@ -239,22 +239,41 @@ a {
     }
   }
 
-  @media (min-width: 800px) {
+  @media screen and (min-width: 400px) and (max-width: 800px) {
+    .userAdsContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+    }
+    
     .adsContainer {
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
     }
+    
     .ad {
-        max-width: 400px;
+        width: 400px;
+        margin: auto;
+        border-radius: 5px;
     }
   }
 
-  /* @media (min-width: 2500px) {
+  @media screen and (min-width: 800px) {
+    .userAdsContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+    }
+
     .adsContainer {
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
     }
+
     .ad {
-        min-width: 400px;
+        width: 400px;
+        margin: 0.8rem;
     }
-  } */
+  }

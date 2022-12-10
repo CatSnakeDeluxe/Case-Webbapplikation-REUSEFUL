@@ -47,95 +47,10 @@
                 </div>
                 <% }) %>
         </div>
+        <script src="../functions/functions.js"></script>
         <script>
-            let acc = document.getElementsByClassName("accordion");
-            let i;
-
-            for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-
-                    let panel = this.nextElementSibling;
-                    if (panel.style.display === "block") {
-                        panel.style.display = "none";
-                    } else {
-                        panel.style.display = "block";
-                    }
-                });
-            }
-
-            function addImg() {
-                const img = document.getElementsByClassName("Image");
-                img.style = "display: block";
-
-                Array.from(img).forEach(element => {
-                    switch (element.innerText) {
-                        case "sofas":
-                            element.innerHTML = "<img src='../public/img/sofa.png'>";
-                            break;
-                        case "tables":
-                            element.innerHTML = "<img src='../public/img/table.png'>";
-                            break;
-                        case "chairs":
-                            element.innerHTML = "<img src='../public/img/chair.png'>";
-                            break;
-                        case "lamps":
-                            element.innerHTML = "<img src='../public/img/lamp.png'>";
-                            break;
-                    }
-                });
-            }
-
-
             filterSelection("all");
             addImg();
-
-            function filterSelection(e) {
-                let x;
-                x = document.querySelectorAll(".ad");
-                if (e == "all") e = "";
-                Array.from(x).forEach(item => {
-                    removeActiveClass(item, "show");
-                    if (item.className.indexOf(e) > -1) addActiveClass(item, "show");
-                });
-            }
-            
-            function addActiveClass(ele, name) {
-                let i;
-                let arr1;
-                let arr2;
-                arr1 = ele.className.split(" ");
-                arr2 = name.split(" ");
-                for (i = 0; i < arr2.length; i++) {
-                    if (arr1.indexOf(arr2[i]) == -1) {
-                        ele.className += " " + arr2[i];
-                    }
-                }
-            }
-
-            function removeActiveClass(ele, name) {
-                let i;
-                let arr1;
-                let arr2;
-                arr1 = ele.className.split(" ");
-                arr2 = name.split(" ");
-                for (i = 0; i < arr2.length; i++) {
-                    while (arr1.indexOf(arr2[i]) > -1) {
-                        arr1.splice(arr1.indexOf(arr2[i]), 1);
-                    }
-                }
-                ele.className = arr1.join(" ");
-            }
-
-            let filterBtns = document.querySelector(".filterBtns");
-            let btns = filterBtns.getElementsByTagName("a");
-            for (let i = 0; i < btns.length; i++) {
-                btns[i].addEventListener("click", function () {
-                    let current = document.getElementsByClassName("active");
-                    current[0].className = current[0].className.replace(" active", "");
-                    this.className += " active";
-                });
-            }
         </script>
 </body>
 </html>

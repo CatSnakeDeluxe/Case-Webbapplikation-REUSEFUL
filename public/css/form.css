@@ -9,6 +9,10 @@ form {
     margin: auto;
 }
 
+.registerForm {
+    width: fit-content;
+}
+
 .loginForm {
     align-items: center;
 }
