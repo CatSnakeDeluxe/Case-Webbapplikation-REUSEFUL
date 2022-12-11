@@ -9,7 +9,7 @@ form {
     margin: auto;
 }
 
-.registerForm {
+.registerForm, .adForm, .editForm {
     width: fit-content;
 }
 
@@ -90,12 +90,15 @@ input[type=submit] {
     background: var(--melon);
     width: 85%;
     bottom: 2rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    display: flex;
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;
     padding: 0.3rem 0.8rem;
     margin: auto;
-    margin-top: 4rem;
     max-width: 320px;
 }
 

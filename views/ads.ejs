@@ -17,40 +17,37 @@
         <div class="adsContainer flex">
             <% Ads.forEach(Ad=> { %>
                 <div class="ad <%= Ad.category %>">
+                    <p class="category"><%= Ad.category %></p>
                     <div class="Image flex">
                         <%= Ad.category %>
                     </div>
-                    <div class="flex titleCategory accordion">
+                    <div>
+                        <div class="flex titleCategory">
+                            <div>
+                                <h3 class="title"><%= Ad.title %></h3>
+                            </div>
+                            <h4 class="price">
+                                <span class="dollar">$</span>
+                                <%= Ad.price %>
+                            </h4>
+                        </div>
                         <div>
-                            <h3 class="title">
-                                <%= Ad.title %>
-                            </h3>
-                            <p class="category">
-                                <%= Ad.category %>
+                            <p class="description">
+                                <%= Ad.description %>
                             </p>
-                        </div>
-                        <h4 class="price">
-                            <span class="dollar">$</span>
-                            <%= Ad.price %>
-                        </h4>
-                    </div>
-                    <div class="panel">
-                        <p>
-                            <%= Ad.description %>
-                        </p>
-                        <div class="flex adBottom">
-                            <p>Posted By: <%= Ad.postedBy.username %>
-                            </p>
-                            <button class="btn contactSeller">Contact Seller</button>
+                            <div class="flex adBottom">
+                                <div class="flex">
+                                    <p class="postedBy">Posted By:</p>
+                                    <p class="postedByUsername"><%= Ad.postedBy.username %></p>
+                                </div>
+                                <button class="btn contactSeller">Contact Seller</button>
+                            </div>
                         </div>
                     </div>
+
                 </div>
                 <% }) %>
         </div>
         <script src="../functions/functions.js"></script>
-        <script>
-            filterSelection("all");
-            addImg();
-        </script>
 </body>
 </html>

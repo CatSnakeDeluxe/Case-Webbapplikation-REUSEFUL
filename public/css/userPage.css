@@ -7,7 +7,7 @@ h3 {
     background: var(--melon);
     padding: 0.4rem 0.8rem;
     border-radius: 5px;
-    width: 60%;
+    width: 70%;
     justify-content: space-between;
     margin: auto;
 }
@@ -27,20 +27,24 @@ h3 {
 }
 
 .adVisibilityHeading {
-    font-weight: 500;
+    font-weight: 700;
     font-size: 1.25rem;
-    margin-bottom: 0.7rem;
+    margin: 0.5rem;
 }
 
-.ad {
-    display: block;
+.description {
+    overflow-wrap: break-word;
 }
+
+/* .ad {
+    display: block;
+} */
 
 .draft {
     background: var(--lightGreen);
     padding: 0.4rem 0.8rem;
     border-radius: 5px;
-    width: 60%;
+    width: 70%;
     justify-content: space-between;
     margin: auto;
 }
@@ -49,6 +53,6 @@ h3 {
     color: var(--darkGreen);
 }
 
-.visibilityText {
+.visibilityTextUserPage {
     font-weight: 500;
 }

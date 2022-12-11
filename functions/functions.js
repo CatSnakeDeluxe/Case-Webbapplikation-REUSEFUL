@@ -60,7 +60,7 @@ function handleCloseForm() {
 }
 
 function addVisibilityText() {
-    const visibilityText = document.getElementsByClassName("visibilityText");
+    let visibilityText = document.getElementsByClassName("visibilityTextUserPage");
 
     Array.from(visibilityText).forEach(visibilityText => {
         switch (visibilityText.innerText) {
@@ -157,3 +157,7 @@ for (let i = 0; i < acc.length; i++) {
         }
     });
 }
+
+filterSelection("all");
+addImg();
+addVisibilityText();

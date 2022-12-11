@@ -127,7 +127,7 @@ a {
 
 .ad {
     background: var(--white);
-    padding: 0.5rem 1rem;
+    /* padding: 0.8rem; */
     display: none;
 }
 
@@ -137,6 +137,8 @@ a {
 
 .titleCategory {
     justify-content: space-between;
+    background: #f6f6f6;
+    padding: 0.8rem;
 }
 
 .title {
@@ -155,27 +157,63 @@ a {
 
 .category {
     background: var(--melon);
-    padding: 0.3rem;
-    font-size: 0.6rem;
+    padding: 0.4rem;
+    font-size: 0.7rem;
     font-weight: 500;
     width: fit-content;
     border-radius: 5px;
-    margin: 0.4rem 0;
+    margin: 0.6rem;
+    position: relative;
+    right: -330px;
+}
+
+.description {
+    overflow-wrap: break-word;
+    padding: 0.8rem;
+}
+
+.postedBy {
+    font-weight: 500;
+    color: var(--darkGreen);
+}
+
+.postedByUsername {
+    font-weight: 800;
+    margin-left: 0.5rem;
+    color: var(--darkGreen);
 }
 
 .adBottom {
     justify-content: space-between;
     align-items: center;
+    margin: 0.4rem 0.8rem;
 }
 
 .contactSeller {
     border: none;
 }
 
-.panel {
+.infoContainer {
+    background: var(--mediumGreen);
+    padding: 0.8rem;
+}
+
+/* .infoContainer::before {
+    content: "";
+    display: block;
+    width: 400px;
+    height: 30px;
+    position: relative;
+    bottom: 40px;
+    left: -20px;
+    background: var(--mediumGreen);
+    background: linear-gradient(0deg, rgba(150,172,128,1) 0%, rgba(150,172,128,1) 42%, rgba(150,172,128,0.6507645294445903) 68%, rgba(150,172,128,0) 100%);
+} */
+
+/* .panel {
     display: none;
     overflow: hidden;
-}
+} */
 
 .dollar {
     margin-right: 0.3rem;
@@ -203,7 +241,6 @@ a {
 .success {
     font-weight: 700;
     display: flex;
-    /* justify-content: center; */
     padding: 0.6rem;
     color: var(--darkGreen);
     border: 5px solid var(--mediumGreen);
@@ -215,11 +252,9 @@ a {
 .fail {
     font-weight: 700;
     display: flex;
-    background: var(--white);
-    /* justify-content: center; */
     padding: 0.6rem;
-    color: var(--darkGreen);
-    border: 5px solid rgb(195, 116, 52);
+    color: rgb(228, 96, 26);
+    border: 5px solid rgb(228, 96, 26);
     border-radius: 5px;
     width: fit-content;
     margin: auto;
@@ -229,27 +264,54 @@ a {
     margin-top: 1rem;
 }
 
+/* IMAGE BACKGROUNDS */
+
+.ImageBackgroundLogin {
+    background: url("../img/bg1.jpg");
+    height: 92vh;
+    background-size: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.ImageBackgroundRegister {
+    background: url("../img/bg4.jpg");
+    height: 92vh;
+    background-size: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* LOGIN */
+.loginLayout {
+    margin-top: 10%;
+    flex-direction: column;
+}
+
+/* REGISTER */
+
+.registerLayout {
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.registerForm {
+    margin-top: 10%;
+}
+
 /* @MEDIA */
 
-@media screen and (max-width: 400px) {
-    .ad {
-        width: 400px;
-        margin: auto;
-        border-radius: 5px;
-    }
-  }
-
   @media screen and (min-width: 400px) and (max-width: 800px) {
-    .userAdsContainer {
-        flex-direction: row;
-        flex-wrap: wrap;
-        /* justify-content: center; */
-    }
-    
     .adsContainer {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        margin: auto;
     }
     
     .ad {
@@ -260,20 +322,17 @@ a {
   }
 
   @media screen and (min-width: 800px) {
-    .userAdsContainer {
-        flex-direction: row;
-        flex-wrap: wrap;
-        /* justify-content: center; */
-    }
-
     .adsContainer {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        width: 90%;
+        margin: auto;
     }
 
     .ad {
         width: 400px;
         margin: 0.8rem;
+        border-radius: 5px;
     }
   }

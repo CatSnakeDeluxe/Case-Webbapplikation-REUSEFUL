@@ -21,9 +21,9 @@
     </div>
     <% } %>
 
-    <form class="flex" id="editForm" hidden>
+    <form class="flex editForm" id="editForm" hidden>
         <div class="flex editFormHeading">
-            <h3>Edit Form</h3>
+            <h3>Edit Ad</h3>
             <i onclick="handleCloseForm()" class="fa-solid fa-circle-xmark"></i>
         </div>
 
@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Save Changes">
     </form>
 
     <div class="flex pageHeading">
@@ -64,9 +64,9 @@
         <% locals.UserAds.forEach(Ad=> { %>
 
         <% if (Ad.visibility==="public" ) { %>
-        <div class="ad">
+        <div class="ad <%= Ad.category %>">
             <div class="optionsDiv flex">
-                <p class="visibilityText">
+                <p class="visibilityTextUserPage">
                     <%= Ad.visibility %>
                 </p>
                 <div>
@@ -93,7 +93,7 @@
                 </h4>
             </div>
             <div>
-                <p>
+                <p class="description">
                     <%= Ad.description %>
                 </p>
             </div>
@@ -107,9 +107,9 @@
     <div class="flex adsContainer">
         <% locals.UserAds.forEach(Ad=> { %>
         <% if (Ad.visibility==="private" ) { %>
-        <div class="ad">
+        <div class="ad <%= Ad.category %>">
             <div class="draft flex">
-                <p class="draftContent visibilityText">
+                <p class="draftContent visibilityTextUserPage">
                     <%= Ad.visibility %>
                 </p>
                 <div>
@@ -135,7 +135,7 @@
                 </h4>
             </div>
             <div>
-                <p>
+                <p class="description">
                     <%= Ad.description %>
                 </p>
             </div>
@@ -143,13 +143,6 @@
         <% } %>
         <% }) %>
     </div>
-
-
     <script src="../functions/functions.js"></script>
-    <script>
-        addVisibilityText();
-        addImg();
-    </script>
 </body>
-
 </html>
