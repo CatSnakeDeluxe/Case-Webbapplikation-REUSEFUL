@@ -7,17 +7,25 @@ async function getRegisterForm(req, res) {
 async function registerUser(req, res) {
     let query = null;
     try {
-      const { username, email, password } = req.body;
-      const newUserDocument = new UserModel({ username, email, password });
+        const { username, email, password } = req.body;
+        const newUserDocument = new UserModel({ username, email, password });
 
-      if (!username || email || password) {
-        throw new Error("All fields required");
-      }
+        if (username.value === "" || email.value === "" || password.value === "") {
+            throw new Error("All fields required");
+        }
 
-      newUserDocument.save();
+    //   const existingUsername = await UserModel.findOne({ username });
 
-      query = new URLSearchParams({type: "success", message: "Successfully Created User"});
-      res.redirect(`/login?${query}`);
+    //   console.log(existingUsername);
+
+    //   if (existingUsername === req.body.username) {
+    //     throw new Error("Username Taken");
+    //   }
+
+        newUserDocument.save();
+
+        query = new URLSearchParams({type: "success", message: "Successfully Created User"});
+        res.redirect(`/login?${query}`);
     } catch (error) {
         console.error(error.message);
         query = new URLSearchParams({type: "fail", message: error.message});

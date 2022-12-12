@@ -128,6 +128,7 @@ a {
 .ad {
     background: var(--white);
     display: none;
+    height: fit-content;
 }
 
 .ad:not(:last-child)  {
@@ -136,7 +137,6 @@ a {
 
 .titleCategory {
     justify-content: space-between;
-    background: #f6f6f6;
     padding: 0.8rem;
 }
 
@@ -184,6 +184,8 @@ a {
 .adBottom {
     justify-content: space-between;
     align-items: center;
+    /* position: relative;
+    bottom: 0px; */
     margin: 0.4rem 0.8rem;
 }
 
@@ -219,6 +221,14 @@ a {
 .Image {
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+.line {
+    height: 3px;
+    width: 95%;
+    margin: auto;
+    border-radius: 5px;
+    background: var(--lightGreen);
 }
 
 /* FILTER */
@@ -304,13 +314,10 @@ a {
 /* @MEDIA */
 
 @media screen and (max-width: 400px) {
-    .category {
-        right: -280px;
-    }
-
     .ad {
         width: 350px;
         margin: auto;
+        border-radius: 5px;
     }
   }
 

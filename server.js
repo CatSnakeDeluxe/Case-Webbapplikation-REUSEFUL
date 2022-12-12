@@ -20,7 +20,7 @@ app.use(session({
 app.set("view engine", "ejs");
 
 function checkSession(req, res, next) {
-    console.log(req.session);
+    // console.log(req.session);
     next();
 }
 
