@@ -64,10 +64,13 @@
         <% locals.UserAds.forEach(Ad=> { %>
 
         <% if (Ad.visibility==="public" ) { %>
-        <div class="ad <%= Ad.category %>">
+        <div class="ad userAds <%= Ad.category %>">
             <div class="optionsDiv flex">
                 <p class="visibilityTextUserPage">
                     <%= Ad.visibility %>
+                </p>
+                <p>
+                    <%= Ad.category %>
                 </p>
                 <div>
                     <a
@@ -83,9 +86,9 @@
                     <h3 class="title">
                         <%= Ad.title %>
                     </h3>
-                    <p class="category">
+                    <!-- <p class="category">
                         <%= Ad.category %>
-                    </p>
+                    </p> -->
                 </div>
                 <h4 class="price">
                     <span class="dollar">$</span>
@@ -107,10 +110,13 @@
     <div class="flex adsContainer">
         <% locals.UserAds.forEach(Ad=> { %>
         <% if (Ad.visibility==="private" ) { %>
-        <div class="ad <%= Ad.category %>">
+        <div class="ad userAds <%= Ad.category %>">
             <div class="draft flex">
                 <p class="draftContent visibilityTextUserPage">
                     <%= Ad.visibility %>
+                </p>
+                <p>
+                    <%= Ad.category %>
                 </p>
                 <div>
                     <a onclick="handleEdit('<%= Ad.id %>', '<%= Ad.title %>', '<%= Ad.category %>', '<%= Ad.price %>', '<%= Ad.description %>', '<%= Ad.visibility %>')"><i class="fa-solid fa-pencil draftContent"></i></a>
@@ -125,9 +131,9 @@
                     <h3 class="title">
                         <%= Ad.title %>
                     </h3>
-                    <p class="category">
+                    <!-- <p class="category">
                         <%= Ad.category %>
-                    </p>
+                    </p> -->
                 </div>
                 <h4 class="price">
                     <span class="dollar">$</span>

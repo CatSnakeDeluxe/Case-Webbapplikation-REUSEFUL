@@ -4,12 +4,10 @@ import UserPageController from "../controllers/UserPageController.js";
 const UserPageRouter = express.Router();
 
 function ensureAuth(req,res,next) {
-    console.log("Inside ensureAuth");
     if (req.session.checkUserAuth) {
         console.log("User is authenticated. Continue to request");
         next();
     } else {
-        console.log("User is NOT authenticated. Redirect to login");
         const query = (new URLSearchParams({type: "fail", message: "You must login to access content"})).toString();
         res.redirect(`/login?${query}`);
     }

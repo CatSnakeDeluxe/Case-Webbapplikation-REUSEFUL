@@ -6,34 +6,30 @@ async function getLogin(req, res) {
 
 async function login(req, res) {
     let query = null;
-    let locals = {};
     try {
         const { username, password } = req.body;
 
         const user = await UserModel.findOne({ username });
 
         if (!user) {
-            throw new Error("No user found with that username");
+            throw new Error("Wrong Username Or Password");
         }
 
         const checkUserAuth = await user.comparePassword(password, user.password);
 
         if (!checkUserAuth) {
-            throw new Error("Not authenticated");
+            throw new Error("Wrong Username Or Password");
         }
 
         req.session.checkUserAuth = true;
         req.session.userId = user._id;
-        locals.userId = user._id;
-        
+
+        query = (new URLSearchParams({ type: "success", message: "Successfully Logged In" })).toString();
+        res.redirect(`/userPage?${query}`);
     } catch (err) {
         console.error(err);
-        query = new URLSearchParams({ type: "fail", message: "Failed To Log In" });
-
+        query = (new URLSearchParams({ type: "fail", message: err.message })).toString();
         return res.redirect(`/login?${query}`);
-    } finally {
-        query = new URLSearchParams({ type: "success", message: "Successfully Logged In" });
-        res.redirect(`/userPage?${query}`);
     }
 }
 

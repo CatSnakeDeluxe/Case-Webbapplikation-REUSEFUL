@@ -17,11 +17,15 @@
         <div class="adsContainer flex">
             <% Ads.forEach(Ad=> { %>
                 <div class="ad <%= Ad.category %>">
-                    <p class="category"><%= Ad.category %></p>
+                    <div class="heartAndCategory">
+                        <i onclick="changeIcon(this)" class="fa-regular fa-heart like"></i>
+                        <p class="category"><%= Ad.category %></p>
+                    </div>
                     <div class="Image flex">
                         <%= Ad.category %>
                     </div>
                     <div>
+                        <div class="line"></div>
                         <div class="flex titleCategory">
                             <div>
                                 <h3 class="title"><%= Ad.title %></h3>
@@ -31,6 +35,7 @@
                                 <%= Ad.price %>
                             </h4>
                         </div>
+                        <div class="line"></div>
                         <div>
                             <p class="description">
                                 <%= Ad.description %>

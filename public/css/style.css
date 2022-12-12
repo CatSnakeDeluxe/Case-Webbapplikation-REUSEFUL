@@ -127,7 +127,6 @@ a {
 
 .ad {
     background: var(--white);
-    /* padding: 0.8rem; */
     display: none;
 }
 
@@ -157,14 +156,13 @@ a {
 
 .category {
     background: var(--melon);
+    color: var(--brown);
     padding: 0.4rem;
     font-size: 0.7rem;
     font-weight: 500;
     width: fit-content;
     border-radius: 5px;
     margin: 0.6rem;
-    position: relative;
-    right: -330px;
 }
 
 .description {
@@ -189,6 +187,17 @@ a {
     margin: 0.4rem 0.8rem;
 }
 
+.heartAndCategory {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-heart {
+    font-size: 1.4rem;
+    margin: 0.6rem;
+    color: var(--melon);
+}
+
 .contactSeller {
     border: none;
 }
@@ -197,18 +206,6 @@ a {
     background: var(--mediumGreen);
     padding: 0.8rem;
 }
-
-/* .infoContainer::before {
-    content: "";
-    display: block;
-    width: 400px;
-    height: 30px;
-    position: relative;
-    bottom: 40px;
-    left: -20px;
-    background: var(--mediumGreen);
-    background: linear-gradient(0deg, rgba(150,172,128,1) 0%, rgba(150,172,128,1) 42%, rgba(150,172,128,0.6507645294445903) 68%, rgba(150,172,128,0) 100%);
-} */
 
 /* .panel {
     display: none;

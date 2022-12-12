@@ -158,6 +158,11 @@ for (let i = 0; i < acc.length; i++) {
     });
 }
 
+function changeIcon(x) {
+    x.classList.toggle("fa-solid");
+    console.log("CHANGE ICON");
+}
+
 filterSelection("all");
 addImg();
 addVisibilityText();

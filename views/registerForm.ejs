@@ -12,11 +12,11 @@
 <body>
     <%- include("./partials/header.ejs") %>
 
-    <div class="ImageBackgroundRegister flex registerLayout">
+    <div class="ImageBackgroundRegister registerLayout">
         <% if (serverMessage.message) { %>
             <div id="serverMessage" class="<%= serverMessage.type %>"><%= serverMessage.message %></div>
         <% } %> 
-    
+
         <div class="flex pageHeading">
             <a href="/login"><i class="fa-solid fa-arrow-left"></i></a>
             <h2 class="pageHeading">Register</h2>

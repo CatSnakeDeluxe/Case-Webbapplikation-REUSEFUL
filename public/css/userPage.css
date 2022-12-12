@@ -10,6 +10,7 @@ h3 {
     width: 70%;
     justify-content: space-between;
     margin: auto;
+    margin-top: 0.5rem;
 }
 
 .fa-pencil, .fa-trash-can {
@@ -36,10 +37,6 @@ h3 {
     overflow-wrap: break-word;
 }
 
-/* .ad {
-    display: block;
-} */
-
 .draft {
     background: var(--lightGreen);
     padding: 0.4rem 0.8rem;
@@ -47,6 +44,7 @@ h3 {
     width: 70%;
     justify-content: space-between;
     margin: auto;
+    margin-top: 0.5rem;
 }
 
 .draftContent {
