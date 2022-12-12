@@ -81,6 +81,7 @@
             <div class="Image flex">
                 <%= Ad.category %>
             </div>
+            <div class="line"></div>
             <div class="flex titleCategory">
                 <div>
                     <h3 class="title">
@@ -95,6 +96,7 @@
                     <%= Ad.price %>
                 </h4>
             </div>
+            <div class="line"></div>
             <div>
                 <p class="description">
                     <%= Ad.description %>
@@ -110,7 +112,7 @@
     <div class="flex adsContainer">
         <% locals.UserAds.forEach(Ad=> { %>
         <% if (Ad.visibility==="private" ) { %>
-        <div class="ad userAds <%= Ad.category %>">
+        <div class="ad <%= Ad.category %>">
             <div class="draft flex">
                 <p class="draftContent visibilityTextUserPage">
                     <%= Ad.visibility %>
@@ -126,6 +128,7 @@
             <div class="Image flex">
                 <%= Ad.category %>
             </div>
+            <div class="line"></div>
             <div class="flex titleCategory">
                 <div>
                     <h3 class="title">
@@ -140,6 +143,7 @@
                     <%= Ad.price %>
                 </h4>
             </div>
+            <div class="line"></div>
             <div>
                 <p class="description">
                     <%= Ad.description %>
