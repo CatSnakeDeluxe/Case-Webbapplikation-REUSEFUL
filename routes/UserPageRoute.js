@@ -16,7 +16,6 @@ function ensureAuth(req,res,next) {
 UserPageRouter.use(ensureAuth);
 
 UserPageRouter.get("/", UserPageController.getUserAds);
-// UserPageRouter.get("/editForm", UserPageController.getEditForm);
 UserPageRouter.get("/adForm", UserPageController.getAdForm);
 
 UserPageRouter.post("/", UserPageController.publishAd);

@@ -6,7 +6,7 @@ dotenv.config();
 
 // check if connection string is valid
 if (!process.env.MONGO_CONNECTION_STR) {
-  console.error("MONGO_CONNECTION_STR is not defined in .env file");
+  // console.error("MONGO_CONNECTION_STR is not defined in .env file");
   exit();
 }
 

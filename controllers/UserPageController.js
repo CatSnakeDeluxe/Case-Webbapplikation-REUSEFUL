@@ -4,7 +4,7 @@ import { ObjectId } from "mongodb";
 async function getUserAds(req, res) {
     const userId = req.session.userId;
     const UserAds = await AdModel.find({ postedBy: ObjectId(userId) });
-    console.log("USER ID", userId);
+    // console.log("USER ID", userId);
     const locals = { UserAds, userId, serverMessage: req.query };
 
     res.render("userPage", locals);
@@ -40,7 +40,7 @@ async function publishAd(req, res) {
     let query = null;
     try {
       const ID = req.params.id;
-      console.log("Trying to delete: ", ID);
+      // console.log("Trying to delete: ", ID);
 
       const result = await AdModel.deleteOne({ _id: ID });
 

@@ -1,7 +1,7 @@
 function handleEdit(id, oldTitle, oldCategory, oldPrice, oldDescription, oldVisibility) {
     const editFormElement = document.getElementById("editForm");
-    console.log("HANDLE EDIT WAS CLICKED");
-    console.log(id, oldTitle, oldCategory, oldPrice, oldDescription, oldVisibility);
+    // console.log("HANDLE EDIT WAS CLICKED");
+    // console.log(id, oldTitle, oldCategory, oldPrice, oldDescription, oldVisibility);
 
     editFormElement.style = "display: flex";
 
@@ -28,7 +28,7 @@ function handleEdit(id, oldTitle, oldCategory, oldPrice, oldDescription, oldVisi
             body: JSON.stringify({ title: newTitle, category: newCategory, price: newPrice, description: newDescription, visibility: newVisibility })
         })
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 if (response.redirected) {
                     window.location.href = response.url;
                 }
@@ -43,10 +43,10 @@ msg.style.display = "none";
 }, 2000);
 
 function handleDelete(id) {
-    console.log("Delete was triggered with id", id);
+    // console.log("Delete was triggered with id", id);
     fetch(`/userPage/${id}`, { method: "DELETE" })
       .then((resp) => {
-        console.log(resp);
+        // console.log(resp);
         if (resp.redirected) {
           window.location.href = resp.url;
         }
@@ -143,20 +143,20 @@ for (let i = 0; i < btns.length; i++) {
     });
 }
 
-let acc = document.getElementsByClassName("accordion");
+// let acc = document.getElementsByClassName("accordion");
 
-for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function () {
-        this.classList.toggle("active");
+// for (let i = 0; i < acc.length; i++) {
+//     acc[i].addEventListener("click", function () {
+//         this.classList.toggle("active");
 
-        let panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    });
-}
+//         let panel = this.nextElementSibling;
+//         if (panel.style.display === "block") {
+//             panel.style.display = "none";
+//         } else {
+//             panel.style.display = "block";
+//         }
+//     });
+// }
 
 function changeIcon(x) {
     x.classList.toggle("fa-solid");

@@ -8,13 +8,13 @@ dotenv.config();
 
 // exit program if no connection string
 if (!process.env.MONGO_CONNECTION_STR) {
-  console.error("MONGO_CONNECTION_STR is not defined in .env file");
+//   console.error("MONGO_CONNECTION_STR is not defined in .env file");
   exit();
 }
 
 // connect to database
-const uri = process.env.MONGO_CONNECTION_STR;
-mongoose.connect(uri);
+const url = process.env.MONGO_CONNECTION_STR;
+mongoose.connect(url);
 
 const userSchema = new mongoose.Schema({
     username: {

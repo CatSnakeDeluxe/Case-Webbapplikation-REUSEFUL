@@ -13,11 +13,11 @@ https://reuseful.onrender.com/
 
 ### Run on local machine
 
-#### Step 1: Clone repo
+#### Step 1: Copy repo link
 Click the green button "Code" and copy repo link.
 
 #### Step 2: Clone repo to local machine
-Open visual studio code and open the folder you want the project in. Open a new terminal and write command: git clone "repo link from github". Press Enter.
+Open visual studio code and open the folder you want the project in. Open a new terminal and write command: git clone "repo link from github" -> Press Enter.
 
 #### Step 3: Install dependencies
 Write command in terminal: npm i. npm i will install all needed dependencies which can be found in package.json.
