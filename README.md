@@ -3,6 +3,8 @@
 ## Purpose
 The purpose of the app is to create a platform for selling used furniture. People can create users which gives them the ability to post, edit and delete ads. Available categories for now: Sofas, Chairs, Tables and Lamps.
 
+![](Reuseful.gif)
+
 ## How To Use App
 
 ### DEMO 
